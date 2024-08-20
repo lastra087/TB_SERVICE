@@ -1,0 +1,202 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">x86</Platform>
+    <ProductVersion>
+    </ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{7594AFBD-2998-4E03-BFE9-1574AE73C47E}</ProjectGuid>
+    <OutputType>WinExe</OutputType>
+    <StartupObject>TB_SERVICE.My.MyApplication</StartupObject>
+    <RootNamespace>TB_SERVICE</RootNamespace>
+    <AssemblyName>TB_SERVICE_FRM</AssemblyName>
+    <FileAlignment>512</FileAlignment>
+    <MyType>WindowsForms</MyType>
+    <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
+    <TargetFrameworkProfile>
+    </TargetFrameworkProfile>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|x86' ">
+    <PlatformTarget>x86</PlatformTarget>
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <DefineDebug>true</DefineDebug>
+    <DefineTrace>true</DefineTrace>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DocumentationFile>TB_SERVICE_FRM.xml</DocumentationFile>
+    <NoWarn>42016,41999,42017,42018,42019,42032,42036,42020,42021,42022</NoWarn>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|x86' ">
+    <PlatformTarget>x86</PlatformTarget>
+    <DebugType>pdbonly</DebugType>
+    <DefineDebug>false</DefineDebug>
+    <DefineTrace>true</DefineTrace>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DocumentationFile>TB_SERVICE_FRM.xml</DocumentationFile>
+    <NoWarn>42016,41999,42017,42018,42019,42032,42036,42020,42021,42022</NoWarn>
+  </PropertyGroup>
+  <PropertyGroup>
+    <OptionExplicit>On</OptionExplicit>
+  </PropertyGroup>
+  <PropertyGroup>
+    <OptionCompare>Binary</OptionCompare>
+  </PropertyGroup>
+  <PropertyGroup>
+    <OptionStrict>Off</OptionStrict>
+  </PropertyGroup>
+  <PropertyGroup>
+    <OptionInfer>On</OptionInfer>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="System" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Deployment" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Xml" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+  </ItemGroup>
+  <ItemGroup>
+    <Import Include="Microsoft.VisualBasic" />
+    <Import Include="System" />
+    <Import Include="System.Collections" />
+    <Import Include="System.Collections.Generic" />
+    <Import Include="System.Data" />
+    <Import Include="System.Drawing" />
+    <Import Include="System.Diagnostics" />
+    <Import Include="System.Windows.Forms" />
+    <Import Include="System.Linq" />
+    <Import Include="System.Xml.Linq" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Categorias_Frm.Designer.vb">
+      <DependentUpon>Categorias_Frm.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Categorias_Frm.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Clientes_Frm.Designer.vb">
+      <DependentUpon>Clientes_Frm.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Clientes_Frm.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Equipos_Frm.Designer.vb">
+      <DependentUpon>Equipos_Frm.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Equipos_Frm.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Marca_Modelo_Frm.Designer.vb">
+      <DependentUpon>Marca_Modelo_Frm.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Marca_Modelo_Frm.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Menu_Frm.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Menu_Frm.Designer.vb">
+      <DependentUpon>Menu_Frm.vb</DependentUpon>
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Module1.vb" />
+    <Compile Include="My Project\AssemblyInfo.vb" />
+    <Compile Include="My Project\Application.Designer.vb">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Application.myapp</DependentUpon>
+    </Compile>
+    <Compile Include="My Project\Resources.Designer.vb">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Resources.resx</DependentUpon>
+    </Compile>
+    <Compile Include="My Project\Settings.Designer.vb">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Settings.settings</DependentUpon>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+    </Compile>
+    <Compile Include="Proveedores_Frm.Designer.vb">
+      <DependentUpon>Proveedores_Frm.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Proveedores_Frm.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Repuestos_Frm.Designer.vb">
+      <DependentUpon>Repuestos_Frm.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Repuestos_Frm.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Taller_Frm.Designer.vb">
+      <DependentUpon>Taller_Frm.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Taller_Frm.vb">
+      <SubType>Form</SubType>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Categorias_Frm.resx">
+      <DependentUpon>Categorias_Frm.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Clientes_Frm.resx">
+      <DependentUpon>Clientes_Frm.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Equipos_Frm.resx">
+      <DependentUpon>Equipos_Frm.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Marca_Modelo_Frm.resx">
+      <DependentUpon>Marca_Modelo_Frm.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Menu_Frm.resx">
+      <DependentUpon>Menu_Frm.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="My Project\Resources.resx">
+      <Generator>VbMyResourcesResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.vb</LastGenOutput>
+      <CustomToolNamespace>My.Resources</CustomToolNamespace>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Proveedores_Frm.resx">
+      <DependentUpon>Proveedores_Frm.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Repuestos_Frm.resx">
+      <DependentUpon>Repuestos_Frm.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Taller_Frm.resx">
+      <DependentUpon>Taller_Frm.vb</DependentUpon>
+    </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="app.config">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="My Project\Application.myapp">
+      <Generator>MyApplicationCodeGenerator</Generator>
+      <LastGenOutput>Application.Designer.vb</LastGenOutput>
+    </None>
+    <None Include="My Project\Settings.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <CustomToolNamespace>My</CustomToolNamespace>
+      <LastGenOutput>Settings.Designer.vb</LastGenOutput>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\TB_SERVICE_AD\TB_SERVICE_AD.vbproj">
+      <Project>{2D75979D-03EF-45A9-A38E-27BB57ECB2ED}</Project>
+      <Name>TB_SERVICE_AD</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.VisualBasic.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>
