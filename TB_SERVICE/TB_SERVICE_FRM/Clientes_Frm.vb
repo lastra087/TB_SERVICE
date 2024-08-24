@@ -39,18 +39,12 @@ Public Class Clientes_Frm
 
     End Sub
 
-    Private Sub Label1_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles Label1.Click
-
-        Me.Close()
-
-    End Sub
-
     Private Sub btn_buscar_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles btn_buscar.Click
 
-        If txt_nombre.Text <> Nothing Then
+        If txt_buscar.Text <> Nothing Then
             Dim oDs As New DataSet
             Dim o_Clientes As New Clientes
-            oDs = o_Clientes.buscar_x_nombre(txt_nombre.Text)
+            oDs = o_Clientes.buscar_x_nombre(txt_buscar.Text)
             With grl_grilla
                 .DataSource = oDs.Tables(0)
             End With
@@ -65,7 +59,7 @@ Public Class Clientes_Frm
         If e.RowIndex >= 0 Then
             sw = 1
             Dim row As DataGridViewRow = grl_grilla.Rows(e.RowIndex)
-            'Asignar los valores de las celdas a los cuadros de texto
+
             idcliente = row.Cells("Código del Cliente").Value.ToString()
             txt_nombre.Text = row.Cells("Nombre").Value.ToString()
             txt_apellido.Text = row.Cells("Apellido").Value.ToString()
@@ -164,13 +158,13 @@ Public Class Clientes_Frm
         carga_grilla()
         limpiar_campos()
         txt_nombre.Focus()
-        'btn_modificar.Enabled = False
         sw = 0
         btn_buscar.Enabled = True
 
     End Sub
 
     Private Sub btn_taller_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles btn_equipos.Click
+        id_cliente = idcliente
         nombre = txt_nombre.Text
         apellido = txt_apellido.Text
         telefono = txt_telefono.Text
@@ -180,4 +174,9 @@ Public Class Clientes_Frm
 
     End Sub
 
+    Private Sub lbl_cerrar_Click(sender As System.Object, e As System.EventArgs) Handles lbl_cerrar.Click
+
+        Me.Close()
+
+    End Sub
 End Class

@@ -75,10 +75,10 @@ Public Class Proveedores_Frm
             o_Proveedores = New Proveedores
             o_Proveedores.modificar_proveedor(txt_id.Text, txt_razon_social.Text, txt_cuit.Text, txt_telefono.Text, txt_direccion.Text)
 
-            MsgBox("Se modificaron con éxitos los datos del equipo.", vbInformation, "Clientes_TB")
+            MsgBox("Se modificaron con éxitos los datos del proveedor.", vbInformation, "TB")
 
         Else
-            MsgBox("Completa los campos de proveedor", vbInformation, "Clientes_TB")
+            MsgBox("Completa los campos de proveedor", vbInformation, "TB")
 
         End If
 
@@ -96,24 +96,24 @@ Public Class Proveedores_Frm
 
             o_Proveedores.Eliminar_Proveedor(txt_id.Text)
 
-            MsgBox("Proveedor eliminado con exito", vbInformation, "Eliminacion exitosa")
+            MsgBox("Proveedor eliminado con exito", vbInformation, "TB")
 
             cargar_grilla()
             Limpiar()
 
         Else
-            MsgBox("Ingrese un ID", vbInformation, "Campos vacios")
+            MsgBox("Ingrese un ID", vbInformation, "TB")
 
         End If
 
     End Sub
 
-    Private Sub btn_consultar_razon_social_Click(sender As System.Object, e As System.EventArgs) Handles btn_consultar_razon_social.Click
+    Private Sub btn_consultar_razon_social_Click(sender As System.Object, e As System.EventArgs) Handles btn_buscar.Click
 
-        If txt_razon_social.Text <> Nothing Then
+        If txt_buscar_proveedor.Text <> Nothing Then
             oDs = New DataSet
             o_Proveedores = New Proveedores
-            oDs = o_Proveedores.Consultar_Razon_Social(txt_razon_social.Text)
+            oDs = o_Proveedores.Consultar_Razon_Social(txt_buscar_proveedor.Text)
             With grl_grilla
                 .DataSource = oDs.Tables(0)
             End With
@@ -122,7 +122,7 @@ Public Class Proveedores_Frm
             btn_mostrar_tabla.Enabled = True
 
         Else
-            MsgBox("Ingrese una Razon Social", vbInformation, "Consultar datos")
+            MsgBox("Ingrese una Razon Social", vbInformation, "TB")
 
         End If
     End Sub
@@ -145,12 +145,12 @@ Public Class Proveedores_Frm
         If txt_razon_social.Text <> Nothing And txt_cuit.Text <> Nothing And txt_telefono.Text <> Nothing And txt_direccion.Text <> Nothing Then
 
             btn_agregar.Enabled = True
-            btn_consultar_razon_social.Enabled = False
+            btn_buscar.Enabled = False
 
         Else
 
             btn_agregar.Enabled = False
-            btn_consultar_razon_social.Enabled = True
+            btn_buscar.Enabled = True
 
         End If
 
@@ -158,36 +158,36 @@ Public Class Proveedores_Frm
         If txt_razon_social.Text <> Nothing And txt_cuit.Text <> Nothing And txt_telefono.Text <> Nothing And txt_direccion.Text <> Nothing Then
 
             btn_modificar.Enabled = True
-            btn_consultar_razon_social.Enabled = False
+            btn_buscar.Enabled = False
 
         Else
 
             btn_modificar.Enabled = False
-            btn_consultar_razon_social.Enabled = True
+            btn_buscar.Enabled = True
 
         End If
 
         If txt_id.Text <> Nothing Then
 
             btn_eliminar.Enabled = True
-            btn_consultar_razon_social.Enabled = False
+            btn_buscar.Enabled = False
 
         Else
 
             btn_eliminar.Enabled = False
-            btn_consultar_razon_social.Enabled = True
+            btn_buscar.Enabled = True
 
         End If
 
         If txt_id.Text <> Nothing Or txt_razon_social.Text <> Nothing Or txt_cuit.Text <> Nothing Or txt_telefono.Text <> Nothing Or txt_direccion.Text <> Nothing Then
 
             btn_limpiar.Enabled = True
-            btn_consultar_razon_social.Enabled = True
+            btn_buscar.Enabled = True
 
         Else
 
             btn_limpiar.Enabled = False
-            btn_consultar_razon_social.Enabled = True
+            btn_buscar.Enabled = True
 
         End If
 

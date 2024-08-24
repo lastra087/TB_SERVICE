@@ -91,6 +91,18 @@
     <Compile Include="Equipos_Frm.vb">
       <SubType>Form</SubType>
     </Compile>
+    <Compile Include="Estadisticas_Frm.Designer.vb">
+      <DependentUpon>Estadisticas_Frm.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Estadisticas_Frm.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Login_Frm.Designer.vb">
+      <DependentUpon>Login_Frm.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Login_Frm.vb">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Include="Marca_Modelo_Frm.Designer.vb">
       <DependentUpon>Marca_Modelo_Frm.vb</DependentUpon>
     </Compile>
@@ -132,10 +144,22 @@
     <Compile Include="Repuestos_Frm.vb">
       <SubType>Form</SubType>
     </Compile>
+    <Compile Include="Sala_espera_Frm.Designer.vb">
+      <DependentUpon>Sala_espera_Frm.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Sala_espera_Frm.vb">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Include="Taller_Frm.Designer.vb">
       <DependentUpon>Taller_Frm.vb</DependentUpon>
     </Compile>
     <Compile Include="Taller_Frm.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Usuarios_Frm.Designer.vb">
+      <DependentUpon>Usuarios_Frm.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Usuarios_Frm.vb">
       <SubType>Form</SubType>
     </Compile>
   </ItemGroup>
@@ -148,6 +172,12 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Equipos_Frm.resx">
       <DependentUpon>Equipos_Frm.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Estadisticas_Frm.resx">
+      <DependentUpon>Estadisticas_Frm.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Login_Frm.resx">
+      <DependentUpon>Login_Frm.vb</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Marca_Modelo_Frm.resx">
       <DependentUpon>Marca_Modelo_Frm.vb</DependentUpon>
@@ -167,8 +197,14 @@
     <EmbeddedResource Include="Repuestos_Frm.resx">
       <DependentUpon>Repuestos_Frm.vb</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Sala_espera_Frm.resx">
+      <DependentUpon>Sala_espera_Frm.vb</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Taller_Frm.resx">
       <DependentUpon>Taller_Frm.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Usuarios_Frm.resx">
+      <DependentUpon>Usuarios_Frm.vb</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <ItemGroup>

@@ -153,7 +153,7 @@ Public Class Marca_Modelo_Frm
         Else
             If e.RowIndex >= 0 Then
                 Dim row As DataGridViewRow = grl_grilla.Rows(e.RowIndex)
-                'Asignar los valores de las celdas a los cuadros de texto
+
                 txt_marca.Text = row.Cells("Marca").Value.ToString()
             End If
 
@@ -276,6 +276,16 @@ Public Class Marca_Modelo_Frm
         MsgBox("Se eliminó marca con éxito.", vbInformation, "TB SERVICE")
         carga_grilla_x_marca()
         limpiar()
+
+    End Sub
+
+    Private Sub txt_marca_TextChanged(sender As System.Object, e As System.EventArgs) Handles txt_marca.TextChanged
+
+    End Sub
+
+    Private Sub Label2_Click(sender As System.Object, e As System.EventArgs) Handles lbl_cerrar.Click
+
+        Me.Close()
 
     End Sub
 End Class

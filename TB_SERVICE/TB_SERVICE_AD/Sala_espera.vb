@@ -5,21 +5,15 @@ Imports System.IO
 Imports Microsoft.Practices.EnterpriseLibrary.Data
 Imports System.Configuration
 
-Public Class Taller
-
+Public Class Sala_espera
     Dim o_database As Database
 
     Public Sub New()
         o_database = DatabaseFactory.CreateDatabase("conn")
     End Sub
 
-    Public Function carga_combo_repuestos() As DataSet
-        Return o_database.ExecuteDataSet("Taller_combo_repuesos")
-    End Function
-
-
-    Public Function carga_combo_categorias() As DataSet
-        Return o_database.ExecuteDataSet("Taller_combo_categorias")
+    Public Function grilla_taller() As DataSet
+        Return o_database.ExecuteDataSet("grilla_taller")
     End Function
 
 End Class

@@ -63,6 +63,8 @@
     </Reference>
     <Reference Include="System" />
     <Reference Include="System.Data" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Windows.Forms" />
     <Reference Include="System.Xml" />
     <Reference Include="System.Core" />
     <Reference Include="System.Xml.Linq" />
@@ -82,6 +84,7 @@
     <Compile Include="Categorias.vb" />
     <Compile Include="Clientes.vb" />
     <Compile Include="Equipos.vb" />
+    <Compile Include="Login.vb" />
     <Compile Include="Marca_Modelo.vb" />
     <Compile Include="My Project\AssemblyInfo.vb" />
     <Compile Include="My Project\Application.Designer.vb">
@@ -100,7 +103,9 @@
     </Compile>
     <Compile Include="Proveedores.vb" />
     <Compile Include="Repuestos.vb" />
+    <Compile Include="Sala_espera.vb" />
     <Compile Include="Taller.vb" />
+    <Compile Include="Usuarios.vb" />
   </ItemGroup>
   <ItemGroup>
     <EmbeddedResource Include="My Project\Resources.resx">

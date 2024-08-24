@@ -87,15 +87,21 @@
 
     Private Sub btn_taller_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles btn_taller.Click
         pinta_boton_clickeado(btn_taller)
-        carga_panel_padre(New chk_cliente)
+        carga_panel_padre(New Sala_espera_Frm)
     End Sub
 
     Private Sub btn_estadistico_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles btn_estadistico.Click
         pinta_boton_clickeado(btn_estadistico)
+        carga_panel_padre(New Estadisticas_Frm)
     End Sub
 
     Private Sub btn_usuarios_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles btn_usuarios.Click
         pinta_boton_clickeado(btn_usuarios)
+        carga_panel_padre(New Usuarios_Frm)
+    End Sub
+
+    Private Sub pnl_padre_Paint(sender As System.Object, e As System.Windows.Forms.PaintEventArgs) Handles pnl_padre.Paint
+
     End Sub
 
 End Class

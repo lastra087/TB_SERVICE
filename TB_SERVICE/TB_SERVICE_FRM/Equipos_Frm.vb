@@ -6,21 +6,32 @@ Public Class Equipos_Frm
     Dim oDs As New DataSet
     Dim o_Equipos As New Equipos
 
-    Private Sub Label1_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles Label1.Click
-        Me.Close()
-    End Sub
-
     Private Sub Equipos_Frm_Load(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles MyBase.Load
+        txt_idcliente.Text = id_cliente
         txt_nombre.Text = nombre
         txt_apellido.Text = apellido
         txt_fecha_ingreso.Text = fechaActual
-        equipos_combo_marca()
+        grilla_sala_espera()
+        combo_marca()
         cbo_marcas.SelectedIndex = -1
+        capos_llenos()
     End Sub
 
-    Public Sub equipos_combo_marca()
+    Public Sub capos_llenos()
+
+        If txt_nombre.Text <> Nothing And txt_apellido.Text <> Nothing And txt_fecha_ingreso.Text <> Nothing And txt_problema_equipo.Text <> Nothing And cbo_marcas.Text <> Nothing And cbo_modelos.Text <> Nothing Then
+
+            btn_sala_espera.Enabled = True
+        Else
+            btn_sala_espera.Enabled = False
+
+        End If
+
+    End Sub
+
+    Public Sub combo_marca()
         Dim o_Equipos As New Equipos
-        oDs = o_Equipos.equipos_combo_marc
+        oDs = o_Equipos.combo_marca
         With cbo_marcas
             .DataSource = oDs.Tables(0)
             .DisplayMember = oDs.Tables(0).Columns(1).ToString
@@ -28,14 +39,14 @@ Public Class Equipos_Frm
         End With
     End Sub
 
-    Public Sub modelos_x_marca()
+    Public Sub combo_modelo_x_marca()
         oDs = New DataSet
         o_Equipos = New Equipos
-        oDs = o_Equipos.combo_modelos_x_marca(cbo_marcas.SelectedValue)
+        oDs = o_Equipos.combo_modelo_x_marca(cbo_marcas.SelectedValue)
         With cbo_modelos
             .DataSource = oDs.Tables(0)
-            .DisplayMember = oDs.Tables(0).Columns(0).ToString
-            .ValueMember = oDs.Tables(0).Columns(0).ToString
+            .DisplayMember = "Modelo"
+            .ValueMember = "idModelo"
         End With
     End Sub
 
@@ -44,22 +55,61 @@ Public Class Equipos_Frm
     End Sub
 
     Private Sub cbo_marcas_LostFocus(ByVal sender As Object, ByVal e As System.EventArgs) Handles cbo_marcas.LostFocus
-        cbo_modelos.SelectedIndex = -1
-        modelos_x_marca()
-    End Sub
-
-    Private Sub btn_limpiar_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles btn_limpiar.Click
-
-    End Sub
-    Private Sub btn_taller_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles btn_taller.Click
-        fecha_ingresa = txt_fecha_ingreso.Text
-        marca = cbo_marcas.Text
-        modelo = cbo_modelos.Text
-        carga_panel_padre(New chk_cliente)
+        combo_modelo_x_marca()
     End Sub
 
     Private Sub cbo_marcas_MouseClick(ByVal sender As Object, ByVal e As System.Windows.Forms.MouseEventArgs) Handles cbo_marcas.MouseClick
-        equipos_combo_marca()
+        combo_marca()
     End Sub
 
+    Private Sub btn_sala_espera_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles btn_sala_espera.Click
+        If txt_nombre.Text <> Nothing And txt_apellido.Text <> Nothing And txt_fecha_ingreso.Text <> Nothing And txt_problema_equipo.Text <> Nothing Then
+            oDs = New DataSet
+            o_Equipos = New Equipos
+            o_Equipos.cargar_equipos(cbo_marcas.SelectedValue, cbo_modelos.SelectedValue, txt_idcliente.Text, txt_fecha_ingreso.Text, txt_problema_equipo.Text)
+            MsgBox("Equipo en espera", vbInformation, "Carga exitosa")
+            carga_panel_padre(New Clientes_Frm)
+        Else
+            MsgBox("Complete los datos", vbInformation, "Campos vacios")
+        End If
+    End Sub
+
+    Private Sub grilla_sala_espera()
+        oDs = New DataSet
+        o_Equipos = New Equipos
+        oDs = o_Equipos.grilla_sala_espera
+        With grl_grilla
+            .DataSource = oDs.Tables(0)
+        End With
+    End Sub
+
+    Private Sub lbl_cerrar_Click(sender As System.Object, e As System.EventArgs) Handles lbl_cerrar.Click
+
+        Me.Close()
+
+    End Sub
+
+    Private Sub txt_fecha_ingreso_TextChanged(sender As System.Object, e As System.EventArgs) Handles txt_fecha_ingreso.TextChanged
+
+        capos_llenos()
+
+    End Sub
+
+    Private Sub txt_problema_equipo_TextChanged(sender As System.Object, e As System.EventArgs) Handles txt_problema_equipo.TextChanged
+
+        capos_llenos()
+
+    End Sub
+
+    Private Sub cbo_marcas_SelectedIndexChanged(sender As System.Object, e As System.EventArgs) Handles cbo_marcas.SelectedIndexChanged
+
+        capos_llenos()
+
+    End Sub
+
+    Private Sub cbo_modelos_SelectedIndexChanged(sender As System.Object, e As System.EventArgs) Handles cbo_modelos.SelectedIndexChanged
+
+        capos_llenos()
+
+    End Sub
 End Class

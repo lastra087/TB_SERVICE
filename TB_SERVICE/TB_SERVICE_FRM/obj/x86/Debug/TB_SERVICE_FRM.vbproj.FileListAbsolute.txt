@@ -67,8 +67,14 @@ C:\Users\Usuario\Desktop\back up\TB_SERVICE_FRM\TB_SERVICE\TB_SERVICE_FRM\obj\x8
 C:\Users\Usuario\Desktop\back up\TB_SERVICE_FRM\TB_SERVICE\TB_SERVICE_FRM\obj\x86\Debug\TB_SERVICE.Proveedores_Frm.resources
 C:\Users\Usuario\Desktop\back up\TB_SERVICE_FRM\TB_SERVICE\TB_SERVICE_FRM\obj\x86\Debug\TB_SERVICE_FRM.vbproj.GenerateResource.Cache
 C:\Users\Usuario\Desktop\TB_SERVICE_FRM\TB_SERVICE\TB_SERVICE_FRM\obj\x86\Debug\TB_SERVICE.Proveedores_Frm.resources
-C:\Users\Usuario\Desktop\TB_SERVICE_FRM\TB_SERVICE\TB_SERVICE_FRM\obj\x86\Debug\TB_SERVICE.chk_cliente.resources
 C:\Users\bossi\Desktop\TB_SERVICE_FRM\TB_SERVICE\TB_SERVICE_FRM\obj\x86\Debug\TB_SERVICE.Repuestos_Frm.resources
-C:\Users\bossi\Desktop\TB_SERVICE_FRM\TB_SERVICE\TB_SERVICE_FRM\obj\x86\Debug\TB_SERVICE.chk_cliente.resources
 C:\Users\Usuario\Desktop\TB_SERVICE_FRM\TB_SERVICE\TB_SERVICE_FRM\obj\x86\Debug\TB_SERVICE.Repuestos_Frm.resources
 C:\Users\Usuario\Desktop\TB_SERVICE_FRM\TB_SERVICE\TB_SERVICE_FRM\obj\x86\Debug\TB_SERVICE.Categorias_Frm.resources
+C:\Users\bossi\Desktop\TB_SERVICE_FRM\TB_SERVICE\TB_SERVICE_FRM\obj\x86\Debug\TB_SERVICE.Categorias_Frm.resources
+C:\Users\bossi\Desktop\TB_SERVICE_FRM\TB_SERVICE\TB_SERVICE_FRM\obj\x86\Debug\TB_SERVICE.Taller_Frm.resources
+C:\Users\Usuario\Desktop\TB_SERVICE_FRM\TB_SERVICE\TB_SERVICE_FRM\obj\x86\Debug\TB_SERVICE.Taller_Frm.resources
+C:\Users\Usuario\Desktop\TB_SERVICE_FRM\TB_SERVICE\TB_SERVICE_FRM\obj\x86\Debug\TB_SERVICE.Sala_espera_Frm.resources
+C:\Users\bossi\Desktop\TB_SERVICE_FRM\TB_SERVICE\TB_SERVICE_FRM\obj\x86\Debug\TB_SERVICE.Sala_espera_Frm.resources
+C:\Users\bossi\Desktop\TB_SERVICE_FRM\TB_SERVICE\TB_SERVICE_FRM\obj\x86\Debug\TB_SERVICE.Login_Frm.resources
+C:\Users\bossi\Desktop\TB_SERVICE_FRM\TB_SERVICE\TB_SERVICE_FRM\obj\x86\Debug\TB_SERVICE.Usuarios_Frm.resources
+C:\Users\bossi\Desktop\TB_SERVICE_FRM\TB_SERVICE\TB_SERVICE_FRM\obj\x86\Debug\TB_SERVICE.Estadisticas_Frm.resources
