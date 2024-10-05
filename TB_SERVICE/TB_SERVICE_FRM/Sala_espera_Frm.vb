@@ -15,8 +15,8 @@ Public Class Sala_espera_Frm
     End Sub
 
     Public Sub grilla_taller()
-        oDs = New DataSet
-        o_Sala_espera = New Sala_espera
+        ' oDs = New DataSet
+        'o_Sala_espera = New Sala_espera
         oDs = o_Sala_espera.grilla_taller
         With grl_grilla
             .DataSource = oDs.Tables(0)

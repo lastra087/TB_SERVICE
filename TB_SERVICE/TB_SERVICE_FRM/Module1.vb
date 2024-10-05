@@ -4,9 +4,9 @@
     Public id_cliente As Integer
     Public nombre As String
     Public apellido As String
-    Public telefono As Long
+    Public telefono As String
     Public correo As String
-    Public cuil As Long
+    Public cuil As String
     Public marca As String
     Public modelo As String
     Public fecha_ingresa As String

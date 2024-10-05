@@ -84,6 +84,7 @@
     <Compile Include="Categorias.vb" />
     <Compile Include="Clientes.vb" />
     <Compile Include="Equipos.vb" />
+    <Compile Include="Estadisticas.vb" />
     <Compile Include="Login.vb" />
     <Compile Include="Marca_Modelo.vb" />
     <Compile Include="My Project\AssemblyInfo.vb" />

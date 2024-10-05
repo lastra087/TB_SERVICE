@@ -1,5 +1,6 @@
 ﻿Imports System.Data
 Imports TB_SERVICE_AD
+Imports System.Diagnostics
 
 Public Class Clientes_Frm
 
@@ -59,7 +60,6 @@ Public Class Clientes_Frm
         If e.RowIndex >= 0 Then
             sw = 1
             Dim row As DataGridViewRow = grl_grilla.Rows(e.RowIndex)
-
             idcliente = row.Cells("Código del Cliente").Value.ToString()
             txt_nombre.Text = row.Cells("Nombre").Value.ToString()
             txt_apellido.Text = row.Cells("Apellido").Value.ToString()
@@ -67,7 +67,6 @@ Public Class Clientes_Frm
             txt_correo.Text = row.Cells("Correo").Value.ToString()
             txt_cuil.Text = row.Cells("Cuil").Value.ToString()
         End If
-
         sw = 2
         btn_agregar.Enabled = False
         btn_equipos.Enabled = True
@@ -108,9 +107,15 @@ Public Class Clientes_Frm
 
     End Sub
 
-    Private Sub txt_telefono_TextChanged(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles txt_telefono.TextChanged
+    Private Sub txt_telefono_KeyPress(ByVal sender As Object, ByVal e As System.Windows.Forms.KeyPressEventArgs)
+        If Not Char.IsControl(e.KeyChar) AndAlso Not Char.IsDigit(e.KeyChar) AndAlso e.KeyChar <> "+" Then
+            e.Handled = True
+        End If
+    End Sub
 
-        campos_llenos()
+    Private Sub txt_telefono_TextChanged(ByVal sender As System.Object, ByVal e As System.EventArgs)
+
+
 
     End Sub
 
@@ -120,17 +125,21 @@ Public Class Clientes_Frm
 
     End Sub
 
-    Private Sub txt_cuil_TextChanged(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles txt_cuil.TextChanged
+    Private Sub txt_cuil_TextChanged(ByVal sender As System.Object, ByVal e As System.EventArgs)
 
         campos_llenos()
 
     End Sub
 
     Private Sub btn_agregar_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles btn_agregar.Click
+        Dim tel_sin As String = txt_telefono.Text
+        Dim cuil_sin As String = txt_cuil.Text
+        tel_sin = tel_sin.Replace("-", "")
+        cuil_sin = cuil_sin.Replace("-", "")
 
         oDs = New DataSet
         o_Clientes = New Clientes
-        o_Clientes.nuevo_cliente(txt_nombre.Text, txt_apellido.Text, txt_telefono.Text, txt_correo.Text, txt_cuil.Text)
+        o_Clientes.nuevo_cliente(txt_nombre.Text, txt_apellido.Text, tel_sin, txt_correo.Text, cuil_sin)
         MsgBox("Se cargaron con éxitos los datos de nuevo cliente.", vbInformation, "Clientes_TB")
         carga_grilla()
         limpiar_campos()
@@ -150,10 +159,14 @@ Public Class Clientes_Frm
     End Sub
 
     Private Sub btn_modificar_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles btn_modificar.Click
+        Dim tel_sin As String = txt_telefono.Text
+        Dim cuil_sin As String = txt_cuil.Text
+        tel_sin = tel_sin.Replace("-", "")
+        cuil_sin = cuil_sin.Replace("-", "")
 
         oDs = New DataSet
         o_Clientes = New Clientes
-        o_Clientes.modificar_cliente(idcliente, txt_nombre.Text, txt_apellido.Text, txt_telefono.Text, txt_correo.Text, txt_cuil.Text)
+        o_Clientes.modificar_cliente(idcliente, txt_nombre.Text, txt_apellido.Text, tel_sin, txt_correo.Text, cuil_sin)
         MsgBox("Se modificaron con éxitos los datos del cliente.", vbInformation, "Clientes_TB")
         carga_grilla()
         limpiar_campos()
@@ -174,9 +187,39 @@ Public Class Clientes_Frm
 
     End Sub
 
-    Private Sub lbl_cerrar_Click(sender As System.Object, e As System.EventArgs) Handles lbl_cerrar.Click
+    Private Sub lbl_cerrar_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles lbl_cerrar.Click
 
         Me.Close()
 
     End Sub
+
+    Private Sub txt_telefono_GotFocus(ByVal sender As Object, ByVal e As System.EventArgs) Handles txt_telefono.GotFocus
+        txt_telefono.SelectionStart = 3
+    End Sub
+
+    Private Sub txt_telefono_MaskInputRejected(ByVal sender As System.Object, ByVal e As System.Windows.Forms.MaskInputRejectedEventArgs) Handles txt_telefono.MaskInputRejected
+        campos_llenos()
+    End Sub
+
+    Private Sub txt_cuil_KeyPress(ByVal sender As Object, ByVal e As System.Windows.Forms.KeyPressEventArgs) Handles txt_cuil.KeyPress
+        If Not Char.IsControl(e.KeyChar) AndAlso Not Char.IsDigit(e.KeyChar) AndAlso e.KeyChar <> "+" Then
+            e.Handled = True
+        End If
+    End Sub
+
+    Private Sub txt_cuil_MaskInputRejected(ByVal sender As System.Object, ByVal e As System.Windows.Forms.MaskInputRejectedEventArgs) Handles txt_cuil.MaskInputRejected
+        campos_llenos()
+    End Sub
+
+    Private Sub Button1_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles Button1.Click
+
+        Dim message As String = "Hola, este es un mensaje enviado desde mi aplicación."
+        Dim phoneNumber As String = "5493573500528"
+        Dim encodedMessage As String = Uri.EscapeDataString(message)
+        Dim wsapurl As String = "https://wa.me/" & phoneNumber & "?text=" & encodedMessage
+        Process.Start(wsapurl)
+
+    End Sub
+
+
 End Class

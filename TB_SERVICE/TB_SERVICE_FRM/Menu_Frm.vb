@@ -104,4 +104,7 @@
 
     End Sub
 
+    Private Sub pnl_barra_Paint(ByVal sender As System.Object, ByVal e As System.Windows.Forms.PaintEventArgs) Handles pnl_barra.Paint
+
+    End Sub
 End Class

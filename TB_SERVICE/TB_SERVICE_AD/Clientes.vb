@@ -21,7 +21,7 @@ Public Class Clientes
         Return o_database.ExecuteDataSet("consulta_x_nom", nombre)
     End Function
 
-    Public Function nuevo_cliente(ByVal nombre As String, ByVal apellido As String, ByVal telefono As Long, ByVal correo As String, ByVal cuil As Long) As Double
+    Public Function nuevo_cliente(ByVal nombre As String, ByVal apellido As String, ByVal telefono As Long, ByVal correo As String, ByVal cuil As String) As Double
         Return o_database.ExecuteScalar("nuevo_cliente", nombre, apellido, telefono, correo, cuil)
     End Function
 

@@ -101,18 +101,13 @@ Public Class Taller_Frm
     Private Sub cbo_categorias_SelectedIndexChanged(sender As Object, e As EventArgs) Handles cbo_categorias.SelectedIndexChanged
 
         If cbo_categorias.SelectedItem IsNot Nothing Then
-
             Dim drv As DataRowView = CType(cbo_categorias.SelectedItem, DataRowView)
-
-
             Dim precioPorHora As Decimal = Convert.ToDecimal(drv("Precio_hora"))
-
-
             txt_valor_hs.Text = precioPorHora.ToString("C")
         Else
-
             txt_valor_hs.Text = String.Empty
         End If
+
     End Sub
 
     Private Sub txt_valor_hs_KeyPress(sender As Object, e As System.Windows.Forms.KeyPressEventArgs) Handles txt_valor_hs.KeyPress
@@ -122,14 +117,9 @@ Public Class Taller_Frm
     Private Sub cbo_horasreparacion_SelectedIndexChanged(sender As Object, e As EventArgs) Handles cbo_horasreparacion.SelectedIndexChanged
 
         If Not String.IsNullOrEmpty(txt_valor_hs.Text) AndAlso cbo_horasreparacion.SelectedItem IsNot Nothing Then
-
             Dim PrecioPorHora As Decimal = Decimal.Parse(txt_valor_hs.Text, Globalization.NumberStyles.Currency)
             Dim HorasReparacion As Integer = Integer.Parse(cbo_horasreparacion.SelectedItem.ToString())
-
-
             Dim TotalReparacion As Decimal = PrecioPorHora * HorasReparacion
-
-
             txt_total_reparacion.Text = TotalReparacion.ToString("C")
         End If
     End Sub

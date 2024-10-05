@@ -18,22 +18,16 @@ Public Class Login_Frm
             MessageBox.Show("Por favor, complete todos los campos.")
             Exit Sub
         End If
-
         Dim username As String = txt_usuario.Text
         Dim password As String = txt_contraseña.Text
-
         If o_Login.inicio_sesion(username, password) Then
-
             Menu_Frm.Show()
             Me.Hide()
-
         Else
             MessageBox.Show("Usuario o contraseña incorrectos")
-
             txt_usuario.Clear()
             txt_contraseña.Clear()
             txt_usuario.Focus()
-
         End If
 
     End Sub
