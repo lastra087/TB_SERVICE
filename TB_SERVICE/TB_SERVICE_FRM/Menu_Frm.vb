@@ -1,5 +1,8 @@
 ﻿Public Class Menu_Frm
     Dim sw As Integer = 0
+    Public Property UserRole As String
+
+
     Private Sub tm_ver_Tick(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles tm_ver.Tick
 
         If pnl_menu.Width >= 200 Then
@@ -31,7 +34,13 @@
     End Sub
 
     Private Sub Menu_Frm_Load(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles MyBase.Load
+        'solucion mia
+        frmPadre = Me
+        'solucion
 
+        If pnl_padre Is Nothing Then
+            MessageBox.Show("El panel contenedor no está inicializado correctamente.")
+        End If
         pnl_menu.Width = 50
         lbl_logo.Width = 200
         btn_clientes.Width = 220
@@ -41,8 +50,39 @@
         btn_taller.Width = 220
         btn_repuestos.Width = 220
         btn_usuarios.Width = 220
+        Select Case UserRole
+            Case "Administrador"
+                ' Administrador tiene acceso a todo
+                btn_clientes.Enabled = True
+                btn_equipos.Enabled = True
+                btn_estadistico.Enabled = True
+                btn_proveedores.Enabled = True
+                btn_taller.Enabled = True
+                btn_repuestos.Enabled = True
+                btn_usuarios.Enabled = True
 
+            Case "Tecnico"
+                ' Técnico solo tiene acceso al taller
+                btn_clientes.Enabled = False
+                btn_equipos.Enabled = False
+                btn_estadistico.Enabled = False
+                btn_proveedores.Enabled = False
+                btn_taller.Enabled = True
+                btn_repuestos.Enabled = False
+                btn_usuarios.Enabled = False
+
+            Case "Recepcionista"
+                ' Recepcionista tiene acceso limitado
+                btn_clientes.Enabled = True
+                btn_equipos.Enabled = True
+                btn_estadistico.Enabled = False
+                btn_proveedores.Enabled = True
+                btn_taller.Enabled = False
+                btn_repuestos.Enabled = True
+                btn_usuarios.Enabled = False
+        End Select
     End Sub
+
     Public Sub resetea_colores()
         btn_clientes.BackColor = Color.FromArgb(7, 25, 82)
         btn_proveedores.BackColor = Color.FromArgb(7, 25, 82)
@@ -54,57 +94,51 @@
     End Sub
 
     Public Sub pinta_boton_clickeado(ByVal btn As Button)
-        If btn.BackColor = Color.FromArgb(7, 25, 82) Then
+        If btn.BackColor = Color.FromArgb(7, 25, 82) Then 'azul
             resetea_colores()
-            btn.BackColor = Color.FromArgb(55, 183, 195)
+            btn.BackColor = Color.FromArgb(55, 183, 195) 'turqueza
         Else
             btn.BackColor = Color.FromArgb(55, 183, 195)
         End If
     End Sub
 
     Private Sub btn_clientes_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles btn_clientes.Click
+
         pinta_boton_clickeado(btn_clientes)
-        carga_panel_padre(New Clientes_Frm)
+        carga_panel_padre(New Clientes_Frm, Me)
 
     End Sub
 
     Private Sub btn_equipos_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles btn_equipos.Click
         pinta_boton_clickeado(btn_equipos)
-        carga_panel_padre(New Marca_Modelo_Frm)
+        carga_panel_padre(New Marca_Modelo_Frm, Me)
     End Sub
 
 
-    Private Sub btn_proveedores_Click(sender As System.Object, e As System.EventArgs) Handles btn_proveedores.Click
+    Private Sub btn_proveedores_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles btn_proveedores.Click
         pinta_boton_clickeado(btn_proveedores)
-        carga_panel_padre(New Proveedores_Frm)
+        carga_panel_padre(New Proveedores_Frm, Me)
 
     End Sub
 
     Private Sub btn_repuestos_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles btn_repuestos.Click
         pinta_boton_clickeado(btn_repuestos)
-        carga_panel_padre(New Repuestos_Frm)
+        carga_panel_padre(New Repuestos_Frm, Me)
     End Sub
 
     Private Sub btn_taller_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles btn_taller.Click
         pinta_boton_clickeado(btn_taller)
-        carga_panel_padre(New Sala_espera_Frm)
+        carga_panel_padre(New Sala_espera_Frm, Me)
     End Sub
 
     Private Sub btn_estadistico_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles btn_estadistico.Click
         pinta_boton_clickeado(btn_estadistico)
-        carga_panel_padre(New Estadisticas_Frm)
+        carga_panel_padre(New Estadisticas_Frm, Me)
     End Sub
 
     Private Sub btn_usuarios_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles btn_usuarios.Click
         pinta_boton_clickeado(btn_usuarios)
-        carga_panel_padre(New Usuarios_Frm)
+        carga_panel_padre(New Usuarios_Frm, Me)
     End Sub
 
-    Private Sub pnl_padre_Paint(sender As System.Object, e As System.Windows.Forms.PaintEventArgs) Handles pnl_padre.Paint
-
-    End Sub
-
-    Private Sub pnl_barra_Paint(ByVal sender As System.Object, ByVal e As System.Windows.Forms.PaintEventArgs) Handles pnl_barra.Paint
-
-    End Sub
 End Class

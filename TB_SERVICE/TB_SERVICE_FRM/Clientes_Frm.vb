@@ -6,7 +6,6 @@ Public Class Clientes_Frm
 
     Dim sw As Integer = 0
     Dim idcliente As Integer = 0
-
     Dim oDs As New DataSet
     Dim o_Clientes As New Clientes
 
@@ -136,7 +135,6 @@ Public Class Clientes_Frm
         Dim cuil_sin As String = txt_cuil.Text
         tel_sin = tel_sin.Replace("-", "")
         cuil_sin = cuil_sin.Replace("-", "")
-
         oDs = New DataSet
         o_Clientes = New Clientes
         o_Clientes.nuevo_cliente(txt_nombre.Text, txt_apellido.Text, tel_sin, txt_correo.Text, cuil_sin)
@@ -163,7 +161,6 @@ Public Class Clientes_Frm
         Dim cuil_sin As String = txt_cuil.Text
         tel_sin = tel_sin.Replace("-", "")
         cuil_sin = cuil_sin.Replace("-", "")
-
         oDs = New DataSet
         o_Clientes = New Clientes
         o_Clientes.modificar_cliente(idcliente, txt_nombre.Text, txt_apellido.Text, tel_sin, txt_correo.Text, cuil_sin)
@@ -183,8 +180,7 @@ Public Class Clientes_Frm
         telefono = txt_telefono.Text
         correo = txt_correo.Text
         cuil = txt_cuil.Text
-        carga_panel_padre(New Equipos_Frm)
-
+        carga_panel_padre(New Equipos_Frm, frmPadre)
     End Sub
 
     Private Sub lbl_cerrar_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles lbl_cerrar.Click
@@ -220,6 +216,5 @@ Public Class Clientes_Frm
         Process.Start(wsapurl)
 
     End Sub
-
 
 End Class

@@ -36,69 +36,76 @@ Partial Class Login_Frm
         'lbl_usuario
         '
         Me.lbl_usuario.AutoSize = True
-        Me.lbl_usuario.Location = New System.Drawing.Point(150, 45)
+        Me.lbl_usuario.Location = New System.Drawing.Point(200, 55)
+        Me.lbl_usuario.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
         Me.lbl_usuario.Name = "lbl_usuario"
-        Me.lbl_usuario.Size = New System.Drawing.Size(43, 13)
+        Me.lbl_usuario.Size = New System.Drawing.Size(57, 17)
         Me.lbl_usuario.TabIndex = 0
         Me.lbl_usuario.Text = "Usuario"
         '
         'lbl_contraseña
         '
         Me.lbl_contraseña.AutoSize = True
-        Me.lbl_contraseña.Location = New System.Drawing.Point(132, 78)
+        Me.lbl_contraseña.Location = New System.Drawing.Point(176, 96)
+        Me.lbl_contraseña.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
         Me.lbl_contraseña.Name = "lbl_contraseña"
-        Me.lbl_contraseña.Size = New System.Drawing.Size(61, 13)
+        Me.lbl_contraseña.Size = New System.Drawing.Size(81, 17)
         Me.lbl_contraseña.TabIndex = 1
         Me.lbl_contraseña.Text = "Contraseña"
         '
         'btn_entrar
         '
-        Me.btn_entrar.Location = New System.Drawing.Point(253, 146)
+        Me.btn_entrar.Location = New System.Drawing.Point(337, 180)
+        Me.btn_entrar.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
         Me.btn_entrar.Name = "btn_entrar"
-        Me.btn_entrar.Size = New System.Drawing.Size(75, 23)
-        Me.btn_entrar.TabIndex = 2
+        Me.btn_entrar.Size = New System.Drawing.Size(100, 28)
+        Me.btn_entrar.TabIndex = 4
         Me.btn_entrar.Text = "Entrar"
         Me.btn_entrar.UseVisualStyleBackColor = True
         '
         'txt_usuario
         '
-        Me.txt_usuario.Location = New System.Drawing.Point(211, 42)
+        Me.txt_usuario.Location = New System.Drawing.Point(281, 52)
+        Me.txt_usuario.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
         Me.txt_usuario.Name = "txt_usuario"
-        Me.txt_usuario.Size = New System.Drawing.Size(117, 20)
-        Me.txt_usuario.TabIndex = 3
+        Me.txt_usuario.Size = New System.Drawing.Size(155, 22)
+        Me.txt_usuario.TabIndex = 1
         '
         'txt_contraseña
         '
-        Me.txt_contraseña.Location = New System.Drawing.Point(211, 75)
+        Me.txt_contraseña.Location = New System.Drawing.Point(281, 92)
+        Me.txt_contraseña.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
         Me.txt_contraseña.Name = "txt_contraseña"
-        Me.txt_contraseña.Size = New System.Drawing.Size(117, 20)
-        Me.txt_contraseña.TabIndex = 4
+        Me.txt_contraseña.Size = New System.Drawing.Size(155, 22)
+        Me.txt_contraseña.TabIndex = 2
         '
         'chk_mostrar_contraseña
         '
         Me.chk_mostrar_contraseña.AutoSize = True
-        Me.chk_mostrar_contraseña.Location = New System.Drawing.Point(211, 101)
+        Me.chk_mostrar_contraseña.Location = New System.Drawing.Point(281, 124)
+        Me.chk_mostrar_contraseña.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
         Me.chk_mostrar_contraseña.Name = "chk_mostrar_contraseña"
-        Me.chk_mostrar_contraseña.Size = New System.Drawing.Size(117, 17)
-        Me.chk_mostrar_contraseña.TabIndex = 5
+        Me.chk_mostrar_contraseña.Size = New System.Drawing.Size(153, 21)
+        Me.chk_mostrar_contraseña.TabIndex = 3
         Me.chk_mostrar_contraseña.Text = "Mostrar contraseña"
         Me.chk_mostrar_contraseña.UseVisualStyleBackColor = True
         '
         'PictureBox1
         '
         Me.PictureBox1.Image = CType(resources.GetObject("PictureBox1.Image"), System.Drawing.Image)
-        Me.PictureBox1.Location = New System.Drawing.Point(12, 28)
+        Me.PictureBox1.Location = New System.Drawing.Point(16, 34)
+        Me.PictureBox1.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
         Me.PictureBox1.Name = "PictureBox1"
-        Me.PictureBox1.Size = New System.Drawing.Size(114, 121)
+        Me.PictureBox1.Size = New System.Drawing.Size(152, 149)
         Me.PictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom
         Me.PictureBox1.TabIndex = 6
         Me.PictureBox1.TabStop = False
         '
         'Login_Frm
         '
-        Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
+        Me.AutoScaleDimensions = New System.Drawing.SizeF(8.0!, 16.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
-        Me.ClientSize = New System.Drawing.Size(367, 181)
+        Me.ClientSize = New System.Drawing.Size(489, 223)
         Me.Controls.Add(Me.PictureBox1)
         Me.Controls.Add(Me.chk_mostrar_contraseña)
         Me.Controls.Add(Me.txt_contraseña)
@@ -107,6 +114,7 @@ Partial Class Login_Frm
         Me.Controls.Add(Me.lbl_contraseña)
         Me.Controls.Add(Me.lbl_usuario)
         Me.Icon = CType(resources.GetObject("$this.Icon"), System.Drawing.Icon)
+        Me.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
         Me.Name = "Login_Frm"
         Me.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen
         Me.Text = "Inicio de Sesion"

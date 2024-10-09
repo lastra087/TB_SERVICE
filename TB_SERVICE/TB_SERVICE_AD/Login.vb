@@ -14,18 +14,21 @@ Public Class Login
         o_database = DatabaseFactory.CreateDatabase("conn")
     End Sub
 
-    Public Function inicio_sesion(username As String, password As String) As Boolean
-
+    Public Function inicio_sesion(ByVal username As String, ByVal password As String) As String
         Try
             Dim o_command As DbCommand = o_database.GetStoredProcCommand("inicio_sesion")
             o_database.AddInParameter(o_command, "@usuario", DbType.String, username)
             o_database.AddInParameter(o_command, "@contraseña", DbType.String, password)
 
-            Dim result As Integer = Convert.ToInt32(o_database.ExecuteScalar(o_command))
+            Dim userType As String = Convert.ToString(o_database.ExecuteScalar(o_command))
 
-            Return result > 0
+            If String.IsNullOrEmpty(userType) Then
+                Return Nothing
+            End If
+            Return userType
+
         Catch ex As Exception
-            Return False
+            Return Nothing
         End Try
 
     End Function

@@ -2,6 +2,7 @@
 Imports TB_SERVICE_AD
 
 Public Class Equipos_Frm
+    'Public frmPadre = New Menu_Frm
     Dim fechaActual As String = DateTime.Now.ToString("dd/MM/yyyy")
     Dim oDs As New DataSet
     Dim o_Equipos As New Equipos
@@ -68,11 +69,13 @@ Public Class Equipos_Frm
             o_Equipos = New Equipos
             o_Equipos.cargar_equipos(cbo_marcas.SelectedValue, cbo_modelos.SelectedValue, txt_idcliente.Text, txt_fecha_ingreso.Text, txt_problema_equipo.Text)
             MsgBox("Equipo en espera", vbInformation, "Carga exitosa")
-            carga_panel_padre(New Clientes_Frm)
+            carga_panel_padre(New Clientes_Frm, Menu_Frm)
         Else
             MsgBox("Complete los datos", vbInformation, "Campos vacios")
         End If
     End Sub
+
+
 
     Private Sub grilla_sala_espera()
         oDs = New DataSet
@@ -83,33 +86,34 @@ Public Class Equipos_Frm
         End With
     End Sub
 
-    Private Sub lbl_cerrar_Click(sender As System.Object, e As System.EventArgs) Handles lbl_cerrar.Click
+    Private Sub lbl_cerrar_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles lbl_cerrar.Click
 
         Me.Close()
 
     End Sub
 
-    Private Sub txt_fecha_ingreso_TextChanged(sender As System.Object, e As System.EventArgs) Handles txt_fecha_ingreso.TextChanged
+    Private Sub txt_fecha_ingreso_TextChanged(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles txt_fecha_ingreso.TextChanged
 
         capos_llenos()
 
     End Sub
 
-    Private Sub txt_problema_equipo_TextChanged(sender As System.Object, e As System.EventArgs) Handles txt_problema_equipo.TextChanged
+    Private Sub txt_problema_equipo_TextChanged(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles txt_problema_equipo.TextChanged
 
         capos_llenos()
 
     End Sub
 
-    Private Sub cbo_marcas_SelectedIndexChanged(sender As System.Object, e As System.EventArgs) Handles cbo_marcas.SelectedIndexChanged
+    Private Sub cbo_marcas_SelectedIndexChanged(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles cbo_marcas.SelectedIndexChanged
 
         capos_llenos()
 
     End Sub
 
-    Private Sub cbo_modelos_SelectedIndexChanged(sender As System.Object, e As System.EventArgs) Handles cbo_modelos.SelectedIndexChanged
+    Private Sub cbo_modelos_SelectedIndexChanged(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles cbo_modelos.SelectedIndexChanged
 
         capos_llenos()
 
     End Sub
+
 End Class
