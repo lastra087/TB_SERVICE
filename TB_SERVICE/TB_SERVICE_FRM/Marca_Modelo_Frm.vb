@@ -7,7 +7,8 @@ Public Class Marca_Modelo_Frm
     Dim marca_original As String
     Dim modelo_original As String
     Dim sw1 As Integer = 0
-
+    Dim sw2 As Integer = 0
+    Private dv As DataView
     Dim oDs As New DataSet
     Dim o_Marca_Modelo As New Marca_Modelo
 
@@ -15,6 +16,7 @@ Public Class Marca_Modelo_Frm
         btn_marcanueva.Enabled = True
         btn_eliminar_marca.Visible = False
         btn_guardarmarca.Visible = False
+        btn_modifica_marca.Visible = False
         btn_cancelar.Visible = False
         txt_marca.Visible = False
         txt_modelo.Text = Nothing
@@ -27,12 +29,14 @@ Public Class Marca_Modelo_Frm
 
     End Sub
 
+
     Public Sub carga_grilla_x_marca()
         oDs = New DataSet
         o_Marca_Modelo = New Marca_Modelo
         oDs = o_Marca_Modelo.grilla_x_marca
+        dv = New DataView(oDs.Tables(0))
         With grl_grilla
-            .DataSource = oDs.Tables(0)
+            .DataSource = dv
         End With
 
     End Sub
@@ -108,10 +112,16 @@ Public Class Marca_Modelo_Frm
         oDs = New DataSet
         o_Marca_Modelo = New Marca_Modelo
         oDs = o_Marca_Modelo.carga_grilla
+        dv = New DataView(oDs.Tables(0))
         With grl_grilla
-            .DataSource = oDs.Tables(0)
+            .DataSource = dv
         End With
+    End Sub
 
+    Private Sub txt_buscar_TextChanged(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles txt_buscar.TextChanged
+        If dv IsNot Nothing Then
+            dv.RowFilter = "[Modelo] LIKE '%" & txt_buscar.Text & "%'"
+        End If
     End Sub
 
     Private Sub limpiar()
@@ -153,10 +163,11 @@ Public Class Marca_Modelo_Frm
         Else
             If e.RowIndex >= 0 Then
                 Dim row As DataGridViewRow = grl_grilla.Rows(e.RowIndex)
-
-                txt_marca.Text = row.Cells("Marca").Value.ToString()
+                idmodelo = row.Cells("Código de marca").Value.ToString()
+                marca_original = row.Cells("Marca").Value.ToString()
+                sw2 = 1
+                txt_marca.Text = marca_original
             End If
-
         End If
     End Sub
 
@@ -174,6 +185,7 @@ Public Class Marca_Modelo_Frm
                 btn_eliminar.Enabled = False
             Else
                 btn_modificar.Enabled = False
+                btn_eliminar.Enabled = True
             End If
         End If
 
@@ -198,21 +210,27 @@ Public Class Marca_Modelo_Frm
     End Sub
 
     Private Sub btn_marcanueva_Click_1(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles btn_marcanueva.Click
+        carga_grilla_x_marca()
         sw1 = 1
         lbl_modelo.Visible = False
         txt_modelo.Visible = False
         btn_guardarmarca.Visible = True
+        btn_modifica_marca.Visible = True
         btn_eliminar_marca.Visible = True
         btn_cancelar.Visible = True
+        btn_guardarmarca.Enabled = False
+        btn_modifica_marca.Enabled = False
+        btn_eliminar_marca.Enabled = False
+
         txt_modelo.Clear()
         cbo_marca.Visible = False
         txt_marca.Visible = True
         btn_marcanueva.Enabled = False
-        carga_grilla_x_marca()
+
         btn_agregar.Visible = False
         btn_modificar.Visible = False
         btn_eliminar.Visible = False
-        btn_limpiar.Visible = False
+        btn_limpiar.Location = New Point(390, 88)
     End Sub
 
     Private Sub btn_guardarmarca_Click_1(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles btn_guardarmarca.Click
@@ -243,25 +261,34 @@ Public Class Marca_Modelo_Frm
         cbo_marca.Visible = True
         btn_cancelar.Visible = False
         btn_guardarmarca.Visible = False
+        btn_modifica_marca.Visible = False
         btn_eliminar_marca.Visible = False
         btn_marcanueva.Enabled = True
         cbo_marca.Focus()
         btn_agregar.Visible = True
         btn_modificar.Visible = True
         btn_eliminar.Visible = True
-        btn_limpiar.Visible = True
+        btn_limpiar.Location = New Point(390, 161)
         cargar_grilla()
     End Sub
 
     Private Sub btn_limpiar_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles btn_limpiar.Click
-        cbo_marca.SelectedIndex = -1
-        txt_modelo.Text = Nothing
-        idmodelo = 0
-        marca_original = 0
-        modelo_original = 0
-        sw = 0
-        btn_modificar.Enabled = False
-        btn_eliminar.Enabled = False
+        If sw1 = 0 Then
+            cbo_marca.SelectedIndex = -1
+            txt_modelo.Text = Nothing
+            idmodelo = 0
+            marca_original = 0
+            modelo_original = 0
+            sw = 0
+            btn_modificar.Enabled = False
+            btn_eliminar.Enabled = False
+        Else
+            sw2 = 0
+            txt_marca.Clear()
+            btn_modifica_marca.Enabled = False
+            btn_eliminar_marca.Enabled = False
+        End If
+
     End Sub
 
     Private Sub btn_eliminar_marca_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles btn_eliminar_marca.Click
@@ -279,13 +306,43 @@ Public Class Marca_Modelo_Frm
 
     End Sub
 
-    Private Sub txt_marca_TextChanged(sender As System.Object, e As System.EventArgs) Handles txt_marca.TextChanged
-
-    End Sub
-
-    Private Sub Label2_Click(sender As System.Object, e As System.EventArgs) Handles lbl_cerrar.Click
+    Private Sub Label2_Click(ByVal sender As System.Object, ByVal e As System.EventArgs)
 
         Me.Close()
 
     End Sub
+
+    Private Sub Button1_Click(ByVal sender As System.Object, ByVal e As System.EventArgs)
+        Me.Hide()
+        Fallas_Frm.Show()
+    End Sub
+
+    Private Sub txt_marca_TextChanged(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles txt_marca.TextChanged
+        If sw2 = 0 Then
+            If txt_marca.Text = Nothing Then
+                btn_guardarmarca.Enabled = False
+            Else
+                btn_guardarmarca.Enabled = True
+            End If
+        Else
+            If txt_marca.Text <> marca_original Then
+                btn_modifica_marca.Enabled = True
+                btn_eliminar_marca.Enabled = False
+            Else
+                btn_modifica_marca.Enabled = False
+                btn_eliminar_marca.Enabled = True
+            End If
+        End If
+    End Sub
+
+    Private Sub btn_eliminar_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles btn_eliminar.Click
+        eliminarmarca()
+        btn_modificar.Enabled = False
+    End Sub
+
+    Private Sub Button1_Click_1(ByVal sender As System.Object, ByVal e As System.EventArgs)
+        Fallas_Frm.Show()
+    End Sub
+
+  
 End Class

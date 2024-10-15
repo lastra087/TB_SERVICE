@@ -35,6 +35,7 @@ Partial Class Sala_espera_Frm
         Me.grl_grilla.Location = New System.Drawing.Point(173, 153)
         Me.grl_grilla.Margin = New System.Windows.Forms.Padding(3, 2, 3, 2)
         Me.grl_grilla.Name = "grl_grilla"
+        Me.grl_grilla.ReadOnly = True
         Me.grl_grilla.RowTemplate.Height = 24
         Me.grl_grilla.Size = New System.Drawing.Size(919, 422)
         Me.grl_grilla.TabIndex = 1

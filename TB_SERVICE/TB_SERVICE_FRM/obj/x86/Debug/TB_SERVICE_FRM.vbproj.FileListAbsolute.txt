@@ -168,3 +168,4 @@ C:\Users\Usuario\OneDrive\Desktop\tb_roto\TB_SERVICE\TB_SERVICE_FRM\obj\x86\Debu
 C:\Users\Usuario\OneDrive\Desktop\tb_roto\TB_SERVICE\TB_SERVICE_FRM\obj\x86\Debug\TB_SERVICE.Taller_Frm.resources
 C:\Users\Usuario\OneDrive\Desktop\tb_roto\TB_SERVICE\TB_SERVICE_FRM\obj\x86\Debug\TB_SERVICE.Usuarios_Frm.resources
 C:\Users\Usuario\OneDrive\Desktop\tb_roto\TB_SERVICE\TB_SERVICE_FRM\obj\x86\Debug\TB_SERVICE_FRM.vbproj.GenerateResource.Cache
+C:\Users\Usuario\OneDrive\Desktop\TB_SERVICE\TB_SERVICE\TB_SERVICE\TB_SERVICE_FRM\obj\x86\Debug\TB_SERVICE.Fallas_Frm.resources

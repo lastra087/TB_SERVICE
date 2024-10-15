@@ -8,6 +8,7 @@ Public Class Clientes_Frm
     Dim idcliente As Integer = 0
     Dim oDs As New DataSet
     Dim o_Clientes As New Clientes
+    Private dv As DataView
 
     Private Sub Clientes_Frm_Load(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles MyBase.Load
         carga_grilla()
@@ -15,6 +16,8 @@ Public Class Clientes_Frm
         btn_agregar.Enabled = False
         btn_modificar.Enabled = False
         btn_equipos.Enabled = False
+        btn_buscar.Visible = False
+
     End Sub
 
     Public Sub limpiar_campos()
@@ -33,8 +36,9 @@ Public Class Clientes_Frm
         oDs = New DataSet
         o_Clientes = New Clientes
         oDs = o_Clientes.carga_grilla
+        dv = New DataView(oDs.Tables(0))
         With grl_grilla
-            .DataSource = oDs.Tables(0)
+            .DataSource = dv
         End With
 
     End Sub
@@ -146,8 +150,8 @@ Public Class Clientes_Frm
     End Sub
 
     Private Sub btn_limpiar_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles btn_limpiar.Click
-
         sw = 0
+        txt_buscar.Clear()
         limpiar_campos()
         btn_modificar.Enabled = False
         carga_grilla()
@@ -217,4 +221,9 @@ Public Class Clientes_Frm
 
     End Sub
 
+    Private Sub txt_buscar_TextChanged(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles txt_buscar.TextChanged
+        If dv IsNot Nothing Then
+            dv.RowFilter = "[Nombre] LIKE '%" & txt_buscar.Text & "%'"
+        End If
+    End Sub
 End Class

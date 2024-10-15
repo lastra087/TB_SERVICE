@@ -42,6 +42,7 @@ Partial Class Clientes_Frm
         Me.txt_telefono = New System.Windows.Forms.MaskedTextBox()
         Me.txt_cuil = New System.Windows.Forms.MaskedTextBox()
         Me.Button1 = New System.Windows.Forms.Button()
+        Me.Label1 = New System.Windows.Forms.Label()
         CType(Me.grl_grilla, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
         '
@@ -121,7 +122,7 @@ Partial Class Clientes_Frm
         '
         Me.btn_buscar.Font = New System.Drawing.Font("Microsoft Sans Serif", 7.8!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.btn_buscar.ImageAlign = System.Drawing.ContentAlignment.MiddleRight
-        Me.btn_buscar.Location = New System.Drawing.Point(483, 272)
+        Me.btn_buscar.Location = New System.Drawing.Point(558, 272)
         Me.btn_buscar.Margin = New System.Windows.Forms.Padding(3, 2, 3, 2)
         Me.btn_buscar.Name = "btn_buscar"
         Me.btn_buscar.Size = New System.Drawing.Size(101, 30)
@@ -195,7 +196,7 @@ Partial Class Clientes_Frm
         '
         'txt_buscar
         '
-        Me.txt_buscar.Location = New System.Drawing.Point(163, 276)
+        Me.txt_buscar.Location = New System.Drawing.Point(239, 276)
         Me.txt_buscar.Margin = New System.Windows.Forms.Padding(3, 2, 3, 2)
         Me.txt_buscar.Name = "txt_buscar"
         Me.txt_buscar.Size = New System.Drawing.Size(313, 22)
@@ -236,11 +237,21 @@ Partial Class Clientes_Frm
         Me.Button1.Text = "Button1"
         Me.Button1.UseVisualStyleBackColor = True
         '
+        'Label1
+        '
+        Me.Label1.AutoSize = True
+        Me.Label1.Location = New System.Drawing.Point(160, 279)
+        Me.Label1.Name = "Label1"
+        Me.Label1.Size = New System.Drawing.Size(82, 17)
+        Me.Label1.TabIndex = 22
+        Me.Label1.Text = "Navegador:"
+        '
         'Clientes_Frm
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(8.0!, 16.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.ClientSize = New System.Drawing.Size(1205, 681)
+        Me.Controls.Add(Me.Label1)
         Me.Controls.Add(Me.Button1)
         Me.Controls.Add(Me.txt_cuil)
         Me.Controls.Add(Me.txt_telefono)
@@ -288,4 +299,5 @@ Partial Class Clientes_Frm
     Friend WithEvents txt_telefono As System.Windows.Forms.MaskedTextBox
     Friend WithEvents txt_cuil As System.Windows.Forms.MaskedTextBox
     Friend WithEvents Button1 As System.Windows.Forms.Button
+    Friend WithEvents Label1 As System.Windows.Forms.Label
 End Class

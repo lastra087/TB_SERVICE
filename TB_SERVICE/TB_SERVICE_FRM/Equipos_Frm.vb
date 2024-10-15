@@ -2,9 +2,9 @@
 Imports TB_SERVICE_AD
 
 Public Class Equipos_Frm
-    'Public frmPadre = New Menu_Frm
     Dim fechaActual As String = DateTime.Now.ToString("dd/MM/yyyy")
     Dim oDs As New DataSet
+    Private dv As DataView
     Dim o_Equipos As New Equipos
 
     Private Sub Equipos_Frm_Load(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles MyBase.Load
@@ -13,21 +13,38 @@ Public Class Equipos_Frm
         txt_apellido.Text = apellido
         txt_fecha_ingreso.Text = fechaActual
         grilla_sala_espera()
+        combo_fallas()
+        cbo_fallas.SelectedIndex = -1
+        cbo_fallas.Text = "Seleccione una falla"
         combo_marca()
         cbo_marcas.SelectedIndex = -1
-        capos_llenos()
+        btn_sala_espera.Enabled = False
     End Sub
 
-    Public Sub capos_llenos()
+    Private Sub grilla_sala_espera()
+        oDs = New DataSet
+        o_Equipos = New Equipos
+        oDs = o_Equipos.grilla_sala_espera
+        With grl_grilla
+            .DataSource = oDs.Tables(0)
+        End With
+    End Sub
 
-        If txt_nombre.Text <> Nothing And txt_apellido.Text <> Nothing And txt_fecha_ingreso.Text <> Nothing And txt_problema_equipo.Text <> Nothing And cbo_marcas.Text <> Nothing And cbo_modelos.Text <> Nothing Then
+    Public Sub combo_fallas()
+        oDs = New DataSet
+        o_Equipos = New Equipos
+        oDs = o_Equipos.combo_fallas
+        ' dv = New DataView(oDs.Tables(0))
+        With cbo_fallas
+            .DataSource = oDs.Tables(0)
+            .DisplayMember = oDs.Tables(0).Columns(1).ToString
+            .ValueMember = oDs.Tables(0).Columns(0).ToString
+        End With
+    End Sub
 
-            btn_sala_espera.Enabled = True
-        Else
-            btn_sala_espera.Enabled = False
-
-        End If
-
+    Private Sub cbo_fallas_TextChanged(ByVal sender As Object, ByVal e As System.EventArgs) Handles cbo_fallas.TextChanged
+     
+        campos_llenos()
     End Sub
 
     Public Sub combo_marca()
@@ -55,19 +72,11 @@ Public Class Equipos_Frm
         Marca_Modelo_Frm.ShowDialog()
     End Sub
 
-    Private Sub cbo_marcas_LostFocus(ByVal sender As Object, ByVal e As System.EventArgs) Handles cbo_marcas.LostFocus
-        combo_modelo_x_marca()
-    End Sub
-
-    Private Sub cbo_marcas_MouseClick(ByVal sender As Object, ByVal e As System.Windows.Forms.MouseEventArgs) Handles cbo_marcas.MouseClick
-        combo_marca()
-    End Sub
-
     Private Sub btn_sala_espera_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles btn_sala_espera.Click
-        If txt_nombre.Text <> Nothing And txt_apellido.Text <> Nothing And txt_fecha_ingreso.Text <> Nothing And txt_problema_equipo.Text <> Nothing Then
+        If txt_nombre.Text <> Nothing And txt_apellido.Text <> Nothing And txt_fecha_ingreso.Text <> Nothing Then
             oDs = New DataSet
             o_Equipos = New Equipos
-            o_Equipos.cargar_equipos(cbo_marcas.SelectedValue, cbo_modelos.SelectedValue, txt_idcliente.Text, txt_fecha_ingreso.Text, txt_problema_equipo.Text)
+            o_Equipos.cargar_equipos(cbo_marcas.SelectedValue, cbo_modelos.SelectedValue, txt_idcliente.Text, txt_fecha_ingreso.Text, cbo_fallas.SelectedValue)
             MsgBox("Equipo en espera", vbInformation, "Carga exitosa")
             carga_panel_padre(New Clientes_Frm, Menu_Frm)
         Else
@@ -75,45 +84,33 @@ Public Class Equipos_Frm
         End If
     End Sub
 
-
-
-    Private Sub grilla_sala_espera()
-        oDs = New DataSet
-        o_Equipos = New Equipos
-        oDs = o_Equipos.grilla_sala_espera
-        With grl_grilla
-            .DataSource = oDs.Tables(0)
-        End With
-    End Sub
-
     Private Sub lbl_cerrar_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles lbl_cerrar.Click
-
         Me.Close()
-
     End Sub
 
-    Private Sub txt_fecha_ingreso_TextChanged(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles txt_fecha_ingreso.TextChanged
 
-        capos_llenos()
-
+    Public Sub campos_llenos()
+        If cbo_fallas.Text = Nothing Or cbo_marcas.Text = Nothing Or cbo_modelos.Text = Nothing Then
+            btn_sala_espera.Enabled = False
+        Else
+            btn_sala_espera.Enabled = True
+        End If
     End Sub
 
-    Private Sub txt_problema_equipo_TextChanged(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles txt_problema_equipo.TextChanged
-
-        capos_llenos()
-
+    Private Sub cbo_marcas_LostFocus(ByVal sender As Object, ByVal e As System.EventArgs) Handles cbo_marcas.LostFocus
+        combo_modelo_x_marca()
     End Sub
 
-    Private Sub cbo_marcas_SelectedIndexChanged(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles cbo_marcas.SelectedIndexChanged
-
-        capos_llenos()
-
+    Private Sub cbo_marcas_TextChanged(ByVal sender As Object, ByVal e As System.EventArgs) Handles cbo_marcas.TextChanged
+        campos_llenos()
     End Sub
 
-    Private Sub cbo_modelos_SelectedIndexChanged(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles cbo_modelos.SelectedIndexChanged
+    Private Sub cbo_modelos_TextChanged(ByVal sender As Object, ByVal e As System.EventArgs) Handles cbo_modelos.TextChanged
+        campos_llenos()
+    End Sub
 
-        capos_llenos()
-
+    Private Sub btn_fallas_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles btn_fallas.Click
+        Fallas_Frm.ShowDialog()
     End Sub
 
 End Class

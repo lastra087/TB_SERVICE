@@ -69,7 +69,7 @@ Partial Class Usuarios_Frm
         'txt_buscar
         '
         Me.txt_buscar.Location = New System.Drawing.Point(219, 274)
-        Me.txt_buscar.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
+        Me.txt_buscar.Margin = New System.Windows.Forms.Padding(4)
         Me.txt_buscar.Name = "txt_buscar"
         Me.txt_buscar.Size = New System.Drawing.Size(313, 22)
         Me.txt_buscar.TabIndex = 116
@@ -79,8 +79,9 @@ Partial Class Usuarios_Frm
         Me.dgv_usuarios.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill
         Me.dgv_usuarios.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
         Me.dgv_usuarios.Location = New System.Drawing.Point(219, 308)
-        Me.dgv_usuarios.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
+        Me.dgv_usuarios.Margin = New System.Windows.Forms.Padding(4)
         Me.dgv_usuarios.Name = "dgv_usuarios"
+        Me.dgv_usuarios.ReadOnly = True
         Me.dgv_usuarios.Size = New System.Drawing.Size(784, 202)
         Me.dgv_usuarios.TabIndex = 115
         '
@@ -121,7 +122,7 @@ Partial Class Usuarios_Frm
         '
         Me.cbo_cargo.FormattingEnabled = True
         Me.cbo_cargo.Location = New System.Drawing.Point(219, 161)
-        Me.cbo_cargo.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
+        Me.cbo_cargo.Margin = New System.Windows.Forms.Padding(4)
         Me.cbo_cargo.Name = "cbo_cargo"
         Me.cbo_cargo.Size = New System.Drawing.Size(281, 24)
         Me.cbo_cargo.TabIndex = 110
@@ -129,7 +130,7 @@ Partial Class Usuarios_Frm
         'txt_usuario
         '
         Me.txt_usuario.Location = New System.Drawing.Point(219, 97)
-        Me.txt_usuario.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
+        Me.txt_usuario.Margin = New System.Windows.Forms.Padding(4)
         Me.txt_usuario.Name = "txt_usuario"
         Me.txt_usuario.Size = New System.Drawing.Size(281, 22)
         Me.txt_usuario.TabIndex = 109
@@ -137,7 +138,7 @@ Partial Class Usuarios_Frm
         'txt_contraseña
         '
         Me.txt_contraseña.Location = New System.Drawing.Point(219, 129)
-        Me.txt_contraseña.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
+        Me.txt_contraseña.Margin = New System.Windows.Forms.Padding(4)
         Me.txt_contraseña.Name = "txt_contraseña"
         Me.txt_contraseña.Size = New System.Drawing.Size(281, 22)
         Me.txt_contraseña.TabIndex = 108
@@ -175,7 +176,7 @@ Partial Class Usuarios_Frm
         'txt_id
         '
         Me.txt_id.Location = New System.Drawing.Point(219, 65)
-        Me.txt_id.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
+        Me.txt_id.Margin = New System.Windows.Forms.Padding(4)
         Me.txt_id.Name = "txt_id"
         Me.txt_id.Size = New System.Drawing.Size(51, 22)
         Me.txt_id.TabIndex = 104
@@ -233,7 +234,7 @@ Partial Class Usuarios_Frm
         Me.Controls.Add(Me.txt_id)
         Me.Controls.Add(Me.lbl_id)
         Me.Controls.Add(Me.lbl_usuarios)
-        Me.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
+        Me.Margin = New System.Windows.Forms.Padding(4)
         Me.Name = "Usuarios_Frm"
         Me.Text = "Usuarios"
         CType(Me.dgv_usuarios, System.ComponentModel.ISupportInitialize).EndInit()

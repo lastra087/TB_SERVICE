@@ -25,7 +25,6 @@ Partial Class Taller_Frm
         Me.Label2 = New System.Windows.Forms.Label()
         Me.Label3 = New System.Windows.Forms.Label()
         Me.Label4 = New System.Windows.Forms.Label()
-        Me.txt_diagnostico = New System.Windows.Forms.TextBox()
         Me.cbo_repuestos = New System.Windows.Forms.ComboBox()
         Me.rdb_taller = New System.Windows.Forms.RadioButton()
         Me.rdb_cliente = New System.Windows.Forms.RadioButton()
@@ -57,6 +56,7 @@ Partial Class Taller_Frm
         Me.txt_problema_reportado = New System.Windows.Forms.TextBox()
         Me.lbl_cerrar = New System.Windows.Forms.Label()
         Me.lbl_taller = New System.Windows.Forms.Label()
+        Me.cbo_diagnostico = New System.Windows.Forms.ComboBox()
         CType(Me.dgv_repuestos, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.grb_repuestos.SuspendLayout()
         Me.SuspendLayout()
@@ -64,7 +64,7 @@ Partial Class Taller_Frm
         'Label2
         '
         Me.Label2.AutoSize = True
-        Me.Label2.Location = New System.Drawing.Point(180, 187)
+        Me.Label2.Location = New System.Drawing.Point(180, 177)
         Me.Label2.Name = "Label2"
         Me.Label2.Size = New System.Drawing.Size(86, 17)
         Me.Label2.TabIndex = 1
@@ -73,7 +73,7 @@ Partial Class Taller_Frm
         'Label3
         '
         Me.Label3.AutoSize = True
-        Me.Label3.Location = New System.Drawing.Point(108, 274)
+        Me.Label3.Location = New System.Drawing.Point(108, 264)
         Me.Label3.Name = "Label3"
         Me.Label3.Size = New System.Drawing.Size(159, 17)
         Me.Label3.TabIndex = 2
@@ -87,14 +87,6 @@ Partial Class Taller_Frm
         Me.Label4.Size = New System.Drawing.Size(73, 17)
         Me.Label4.TabIndex = 3
         Me.Label4.Text = "Repuesto:"
-        '
-        'txt_diagnostico
-        '
-        Me.txt_diagnostico.Location = New System.Drawing.Point(272, 183)
-        Me.txt_diagnostico.Margin = New System.Windows.Forms.Padding(3, 2, 3, 2)
-        Me.txt_diagnostico.Name = "txt_diagnostico"
-        Me.txt_diagnostico.Size = New System.Drawing.Size(421, 22)
-        Me.txt_diagnostico.TabIndex = 7
         '
         'cbo_repuestos
         '
@@ -110,7 +102,7 @@ Partial Class Taller_Frm
         '
         Me.rdb_taller.AutoSize = True
         Me.rdb_taller.Checked = True
-        Me.rdb_taller.Location = New System.Drawing.Point(273, 274)
+        Me.rdb_taller.Location = New System.Drawing.Point(273, 264)
         Me.rdb_taller.Margin = New System.Windows.Forms.Padding(3, 2, 3, 2)
         Me.rdb_taller.Name = "rdb_taller"
         Me.rdb_taller.Size = New System.Drawing.Size(98, 21)
@@ -122,7 +114,7 @@ Partial Class Taller_Frm
         'rdb_cliente
         '
         Me.rdb_cliente.AutoSize = True
-        Me.rdb_cliente.Location = New System.Drawing.Point(423, 274)
+        Me.rdb_cliente.Location = New System.Drawing.Point(423, 264)
         Me.rdb_cliente.Margin = New System.Windows.Forms.Padding(3, 2, 3, 2)
         Me.rdb_cliente.Name = "rdb_cliente"
         Me.rdb_cliente.Size = New System.Drawing.Size(72, 21)
@@ -133,7 +125,7 @@ Partial Class Taller_Frm
         'Label1
         '
         Me.Label1.AutoSize = True
-        Me.Label1.Location = New System.Drawing.Point(101, 214)
+        Me.Label1.Location = New System.Drawing.Point(101, 204)
         Me.Label1.Name = "Label1"
         Me.Label1.Size = New System.Drawing.Size(165, 17)
         Me.Label1.TabIndex = 16
@@ -144,7 +136,7 @@ Partial Class Taller_Frm
         Me.cbo_categorias.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList
         Me.cbo_categorias.FormattingEnabled = True
         Me.cbo_categorias.Items.AddRange(New Object() {"A", "B", "C", "D"})
-        Me.cbo_categorias.Location = New System.Drawing.Point(272, 212)
+        Me.cbo_categorias.Location = New System.Drawing.Point(272, 202)
         Me.cbo_categorias.Margin = New System.Windows.Forms.Padding(3, 2, 3, 2)
         Me.cbo_categorias.Name = "cbo_categorias"
         Me.cbo_categorias.Size = New System.Drawing.Size(121, 24)
@@ -153,7 +145,7 @@ Partial Class Taller_Frm
         'Label5
         '
         Me.Label5.AutoSize = True
-        Me.Label5.Location = New System.Drawing.Point(93, 247)
+        Me.Label5.Location = New System.Drawing.Point(93, 237)
         Me.Label5.Name = "Label5"
         Me.Label5.Size = New System.Drawing.Size(176, 17)
         Me.Label5.TabIndex = 18
@@ -163,7 +155,7 @@ Partial Class Taller_Frm
         '
         Me.cbo_horasreparacion.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList
         Me.cbo_horasreparacion.FormattingEnabled = True
-        Me.cbo_horasreparacion.Location = New System.Drawing.Point(272, 244)
+        Me.cbo_horasreparacion.Location = New System.Drawing.Point(272, 234)
         Me.cbo_horasreparacion.Margin = New System.Windows.Forms.Padding(3, 2, 3, 2)
         Me.cbo_horasreparacion.Name = "cbo_horasreparacion"
         Me.cbo_horasreparacion.Size = New System.Drawing.Size(121, 24)
@@ -172,7 +164,7 @@ Partial Class Taller_Frm
         'Label6
         '
         Me.Label6.AutoSize = True
-        Me.Label6.Location = New System.Drawing.Point(193, 588)
+        Me.Label6.Location = New System.Drawing.Point(193, 578)
         Me.Label6.Name = "Label6"
         Me.Label6.Size = New System.Drawing.Size(74, 17)
         Me.Label6.TabIndex = 20
@@ -180,7 +172,7 @@ Partial Class Taller_Frm
         '
         'txt_total_final
         '
-        Me.txt_total_final.Location = New System.Drawing.Point(273, 584)
+        Me.txt_total_final.Location = New System.Drawing.Point(273, 574)
         Me.txt_total_final.Margin = New System.Windows.Forms.Padding(3, 2, 3, 2)
         Me.txt_total_final.Name = "txt_total_final"
         Me.txt_total_final.Size = New System.Drawing.Size(421, 22)
@@ -188,6 +180,7 @@ Partial Class Taller_Frm
         '
         'txt_marca
         '
+        Me.txt_marca.Enabled = False
         Me.txt_marca.Location = New System.Drawing.Point(271, 58)
         Me.txt_marca.Margin = New System.Windows.Forms.Padding(3, 2, 3, 2)
         Me.txt_marca.Name = "txt_marca"
@@ -196,6 +189,7 @@ Partial Class Taller_Frm
         '
         'txt_modelo
         '
+        Me.txt_modelo.Enabled = False
         Me.txt_modelo.Location = New System.Drawing.Point(271, 86)
         Me.txt_modelo.Margin = New System.Windows.Forms.Padding(3, 2, 3, 2)
         Me.txt_modelo.Name = "txt_modelo"
@@ -222,7 +216,7 @@ Partial Class Taller_Frm
         '
         'btn_calcular_total
         '
-        Me.btn_calcular_total.Location = New System.Drawing.Point(273, 544)
+        Me.btn_calcular_total.Location = New System.Drawing.Point(273, 534)
         Me.btn_calcular_total.Margin = New System.Windows.Forms.Padding(3, 2, 3, 2)
         Me.btn_calcular_total.Name = "btn_calcular_total"
         Me.btn_calcular_total.Size = New System.Drawing.Size(144, 34)
@@ -241,16 +235,17 @@ Partial Class Taller_Frm
         '
         'txt_fecha_ingreso
         '
-        Me.txt_fecha_ingreso.Location = New System.Drawing.Point(272, 150)
+        Me.txt_fecha_ingreso.Enabled = False
+        Me.txt_fecha_ingreso.Location = New System.Drawing.Point(271, 147)
         Me.txt_fecha_ingreso.Margin = New System.Windows.Forms.Padding(3, 2, 3, 2)
         Me.txt_fecha_ingreso.Name = "txt_fecha_ingreso"
-        Me.txt_fecha_ingreso.Size = New System.Drawing.Size(97, 22)
+        Me.txt_fecha_ingreso.Size = New System.Drawing.Size(83, 22)
         Me.txt_fecha_ingreso.TabIndex = 35
         '
         'Label11
         '
         Me.Label11.AutoSize = True
-        Me.Label11.Location = New System.Drawing.Point(465, 154)
+        Me.Label11.Location = New System.Drawing.Point(465, 150)
         Me.Label11.Name = "Label11"
         Me.Label11.Size = New System.Drawing.Size(124, 17)
         Me.Label11.TabIndex = 36
@@ -259,7 +254,7 @@ Partial Class Taller_Frm
         'DateTimePicker1
         '
         Me.DateTimePicker1.Format = System.Windows.Forms.DateTimePickerFormat.[Short]
-        Me.DateTimePicker1.Location = New System.Drawing.Point(595, 150)
+        Me.DateTimePicker1.Location = New System.Drawing.Point(597, 145)
         Me.DateTimePicker1.Margin = New System.Windows.Forms.Padding(3, 2, 3, 2)
         Me.DateTimePicker1.Name = "DateTimePicker1"
         Me.DateTimePicker1.Size = New System.Drawing.Size(97, 22)
@@ -270,8 +265,9 @@ Partial Class Taller_Frm
         Me.dgv_repuestos.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill
         Me.dgv_repuestos.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
         Me.dgv_repuestos.Location = New System.Drawing.Point(91, 54)
-        Me.dgv_repuestos.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
+        Me.dgv_repuestos.Margin = New System.Windows.Forms.Padding(4)
         Me.dgv_repuestos.Name = "dgv_repuestos"
+        Me.dgv_repuestos.ReadOnly = True
         Me.dgv_repuestos.Size = New System.Drawing.Size(572, 124)
         Me.dgv_repuestos.TabIndex = 40
         '
@@ -288,7 +284,7 @@ Partial Class Taller_Frm
         'txt_total_repuesto
         '
         Me.txt_total_repuesto.Location = New System.Drawing.Point(91, 186)
-        Me.txt_total_repuesto.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
+        Me.txt_total_repuesto.Margin = New System.Windows.Forms.Padding(4)
         Me.txt_total_repuesto.Name = "txt_total_repuesto"
         Me.txt_total_repuesto.Size = New System.Drawing.Size(93, 22)
         Me.txt_total_repuesto.TabIndex = 43
@@ -310,10 +306,10 @@ Partial Class Taller_Frm
         Me.grb_repuestos.Controls.Add(Me.txt_total_repuesto)
         Me.grb_repuestos.Controls.Add(Me.cbo_repuestos)
         Me.grb_repuestos.Controls.Add(Me.btn_agregar_reparacion)
-        Me.grb_repuestos.Location = New System.Drawing.Point(272, 314)
-        Me.grb_repuestos.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
+        Me.grb_repuestos.Location = New System.Drawing.Point(272, 304)
+        Me.grb_repuestos.Margin = New System.Windows.Forms.Padding(4)
         Me.grb_repuestos.Name = "grb_repuestos"
-        Me.grb_repuestos.Padding = New System.Windows.Forms.Padding(4, 4, 4, 4)
+        Me.grb_repuestos.Padding = New System.Windows.Forms.Padding(4)
         Me.grb_repuestos.Size = New System.Drawing.Size(704, 224)
         Me.grb_repuestos.TabIndex = 45
         Me.grb_repuestos.TabStop = False
@@ -322,7 +318,7 @@ Partial Class Taller_Frm
         'lbl_precio_hora
         '
         Me.lbl_precio_hora.AutoSize = True
-        Me.lbl_precio_hora.Location = New System.Drawing.Point(400, 215)
+        Me.lbl_precio_hora.Location = New System.Drawing.Point(400, 205)
         Me.lbl_precio_hora.Name = "lbl_precio_hora"
         Me.lbl_precio_hora.Size = New System.Drawing.Size(74, 17)
         Me.lbl_precio_hora.TabIndex = 46
@@ -330,8 +326,8 @@ Partial Class Taller_Frm
         '
         'txt_valor_hs
         '
-        Me.txt_valor_hs.Location = New System.Drawing.Point(479, 212)
-        Me.txt_valor_hs.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
+        Me.txt_valor_hs.Location = New System.Drawing.Point(479, 202)
+        Me.txt_valor_hs.Margin = New System.Windows.Forms.Padding(4)
         Me.txt_valor_hs.Name = "txt_valor_hs"
         Me.txt_valor_hs.Size = New System.Drawing.Size(93, 22)
         Me.txt_valor_hs.TabIndex = 45
@@ -339,7 +335,7 @@ Partial Class Taller_Frm
         'lbl_total_reparacion
         '
         Me.lbl_total_reparacion.AutoSize = True
-        Me.lbl_total_reparacion.Location = New System.Drawing.Point(400, 247)
+        Me.lbl_total_reparacion.Location = New System.Drawing.Point(400, 237)
         Me.lbl_total_reparacion.Name = "lbl_total_reparacion"
         Me.lbl_total_reparacion.Size = New System.Drawing.Size(44, 17)
         Me.lbl_total_reparacion.TabIndex = 47
@@ -347,8 +343,8 @@ Partial Class Taller_Frm
         '
         'txt_total_reparacion
         '
-        Me.txt_total_reparacion.Location = New System.Drawing.Point(479, 244)
-        Me.txt_total_reparacion.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
+        Me.txt_total_reparacion.Location = New System.Drawing.Point(479, 234)
+        Me.txt_total_reparacion.Margin = New System.Windows.Forms.Padding(4)
         Me.txt_total_reparacion.Name = "txt_total_reparacion"
         Me.txt_total_reparacion.Size = New System.Drawing.Size(93, 22)
         Me.txt_total_reparacion.TabIndex = 48
@@ -364,6 +360,7 @@ Partial Class Taller_Frm
         '
         'txt_problema_reportado
         '
+        Me.txt_problema_reportado.Enabled = False
         Me.txt_problema_reportado.Location = New System.Drawing.Point(271, 116)
         Me.txt_problema_reportado.Margin = New System.Windows.Forms.Padding(3, 2, 3, 2)
         Me.txt_problema_reportado.Name = "txt_problema_reportado"
@@ -391,23 +388,32 @@ Partial Class Taller_Frm
         Me.lbl_taller.TabIndex = 54
         Me.lbl_taller.Text = "Taller"
         '
+        'cbo_diagnostico
+        '
+        Me.cbo_diagnostico.FormattingEnabled = True
+        Me.cbo_diagnostico.Location = New System.Drawing.Point(271, 174)
+        Me.cbo_diagnostico.Name = "cbo_diagnostico"
+        Me.cbo_diagnostico.Size = New System.Drawing.Size(419, 24)
+        Me.cbo_diagnostico.TabIndex = 55
+        '
         'Taller_Frm
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(8.0!, 16.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.ClientSize = New System.Drawing.Size(1205, 727)
+        Me.Controls.Add(Me.cbo_diagnostico)
         Me.Controls.Add(Me.lbl_taller)
         Me.Controls.Add(Me.lbl_cerrar)
         Me.Controls.Add(Me.lbl_problemareportado)
         Me.Controls.Add(Me.txt_problema_reportado)
         Me.Controls.Add(Me.txt_total_reparacion)
         Me.Controls.Add(Me.lbl_total_reparacion)
+        Me.Controls.Add(Me.txt_fecha_ingreso)
         Me.Controls.Add(Me.txt_valor_hs)
         Me.Controls.Add(Me.lbl_precio_hora)
         Me.Controls.Add(Me.grb_repuestos)
         Me.Controls.Add(Me.DateTimePicker1)
         Me.Controls.Add(Me.Label11)
-        Me.Controls.Add(Me.txt_fecha_ingreso)
         Me.Controls.Add(Me.Label10)
         Me.Controls.Add(Me.btn_calcular_total)
         Me.Controls.Add(Me.Label8)
@@ -422,7 +428,6 @@ Partial Class Taller_Frm
         Me.Controls.Add(Me.Label1)
         Me.Controls.Add(Me.rdb_cliente)
         Me.Controls.Add(Me.rdb_taller)
-        Me.Controls.Add(Me.txt_diagnostico)
         Me.Controls.Add(Me.Label3)
         Me.Controls.Add(Me.Label2)
         Me.Margin = New System.Windows.Forms.Padding(3, 2, 3, 2)
@@ -438,7 +443,6 @@ Partial Class Taller_Frm
     Friend WithEvents Label2 As System.Windows.Forms.Label
     Friend WithEvents Label3 As System.Windows.Forms.Label
     Friend WithEvents Label4 As System.Windows.Forms.Label
-    Friend WithEvents txt_diagnostico As System.Windows.Forms.TextBox
     Friend WithEvents cbo_repuestos As System.Windows.Forms.ComboBox
     Friend WithEvents rdb_taller As System.Windows.Forms.RadioButton
     Friend WithEvents rdb_cliente As System.Windows.Forms.RadioButton
@@ -470,4 +474,5 @@ Partial Class Taller_Frm
     Public WithEvents txt_problema_reportado As System.Windows.Forms.TextBox
     Friend WithEvents lbl_cerrar As System.Windows.Forms.Label
     Friend WithEvents lbl_taller As System.Windows.Forms.Label
+    Friend WithEvents cbo_diagnostico As System.Windows.Forms.ComboBox
 End Class

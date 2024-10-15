@@ -17,6 +17,10 @@ Public Class Equipos
         Return o_database.ExecuteDataSet("combo_marca")
     End Function
 
+    Public Function combo_fallas() As DataSet
+        Return o_database.ExecuteDataSet("Equipos_combo_fallas")
+    End Function
+
     Public Function combo_modelo_x_marca(ByVal idmarca As Integer) As DataSet
         Return o_database.ExecuteDataSet("combo_modelo_x_marca", idmarca)
     End Function

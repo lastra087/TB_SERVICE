@@ -22,4 +22,8 @@ Public Class Taller
         Return o_database.ExecuteDataSet("Taller_combo_categorias")
     End Function
 
+    Public Function Combo_diagnostico() As DataSet
+        Return o_database.ExecuteDataSet("Equipos_combo_fallas")
+    End Function
+
 End Class
