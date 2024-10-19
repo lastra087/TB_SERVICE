@@ -180,19 +180,19 @@ Partial Class Taller_Frm
         '
         'txt_marca
         '
-        Me.txt_marca.Enabled = False
         Me.txt_marca.Location = New System.Drawing.Point(271, 58)
         Me.txt_marca.Margin = New System.Windows.Forms.Padding(3, 2, 3, 2)
         Me.txt_marca.Name = "txt_marca"
+        Me.txt_marca.ReadOnly = True
         Me.txt_marca.Size = New System.Drawing.Size(421, 22)
         Me.txt_marca.TabIndex = 24
         '
         'txt_modelo
         '
-        Me.txt_modelo.Enabled = False
         Me.txt_modelo.Location = New System.Drawing.Point(271, 86)
         Me.txt_modelo.Margin = New System.Windows.Forms.Padding(3, 2, 3, 2)
         Me.txt_modelo.Name = "txt_modelo"
+        Me.txt_modelo.ReadOnly = True
         Me.txt_modelo.Size = New System.Drawing.Size(421, 22)
         Me.txt_modelo.TabIndex = 25
         '
@@ -235,10 +235,10 @@ Partial Class Taller_Frm
         '
         'txt_fecha_ingreso
         '
-        Me.txt_fecha_ingreso.Enabled = False
         Me.txt_fecha_ingreso.Location = New System.Drawing.Point(271, 147)
         Me.txt_fecha_ingreso.Margin = New System.Windows.Forms.Padding(3, 2, 3, 2)
         Me.txt_fecha_ingreso.Name = "txt_fecha_ingreso"
+        Me.txt_fecha_ingreso.ReadOnly = True
         Me.txt_fecha_ingreso.Size = New System.Drawing.Size(83, 22)
         Me.txt_fecha_ingreso.TabIndex = 35
         '
@@ -360,10 +360,10 @@ Partial Class Taller_Frm
         '
         'txt_problema_reportado
         '
-        Me.txt_problema_reportado.Enabled = False
         Me.txt_problema_reportado.Location = New System.Drawing.Point(271, 116)
         Me.txt_problema_reportado.Margin = New System.Windows.Forms.Padding(3, 2, 3, 2)
         Me.txt_problema_reportado.Name = "txt_problema_reportado"
+        Me.txt_problema_reportado.ReadOnly = True
         Me.txt_problema_reportado.Size = New System.Drawing.Size(421, 22)
         Me.txt_problema_reportado.TabIndex = 49
         '
@@ -390,6 +390,7 @@ Partial Class Taller_Frm
         '
         'cbo_diagnostico
         '
+        Me.cbo_diagnostico.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList
         Me.cbo_diagnostico.FormattingEnabled = True
         Me.cbo_diagnostico.Location = New System.Drawing.Point(271, 174)
         Me.cbo_diagnostico.Name = "cbo_diagnostico"

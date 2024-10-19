@@ -1,5 +1,8 @@
 ﻿Imports System.Data
 Imports TB_SERVICE_AD
+'Imports Twilio
+'Imports Twilio.Rest.Api.V2010.Account
+'Imports Twilio.Types
 
 Public Class Usuarios_Frm
 
@@ -47,11 +50,11 @@ Public Class Usuarios_Frm
             oDs = New DataSet
             o_Usuarios = New Usuarios
             o_Usuarios.agregar_usuario(txt_usuario.Text, txt_contraseña.Text, cbo_cargo.SelectedItem.ToString())
-            MsgBox("Se cargaron con éxito los datos del nuevo usuario.", vbInformation, "TB")
+            MsgBox("Se cargaron con éxito los datos del nuevo usuario.", vbInformation, "Usuarios")
             Cargar_Grilla()
             Limpiar()
         Else
-            MsgBox("Complete todos los campos.", vbInformation, "Repuestos_TB")
+            MsgBox("Complete todos los campos.", vbInformation, "Usuarios")
         End If
     End Sub
 
@@ -61,11 +64,11 @@ Public Class Usuarios_Frm
             oDs = New DataSet
             o_Usuarios = New Usuarios
             o_Usuarios.modificar_usuario(txt_id.Text, txt_usuario.Text, txt_contraseña.Text, cbo_cargo.SelectedItem.ToString())
-            MsgBox("Se modifico con exito", vbInformation, "TB")
+            MsgBox("Se modifico con exito", vbInformation, "Usuarios")
             Cargar_Grilla()
             Limpiar()
         Else
-            MsgBox("Complete los datos", vbInformation, "TB")
+            MsgBox("Complete los datos", vbInformation, "Usuarios")
         End If
     End Sub
 
@@ -75,11 +78,11 @@ Public Class Usuarios_Frm
             oDs = New DataSet
             o_Usuarios = New Usuarios
             o_Usuarios.eliminar_usuario(txt_id.Text)
-            MsgBox("se elimino con exito", vbInformation, "TB")
+            MsgBox("se elimino con exito", vbInformation, "Usuarios")
             Cargar_Grilla()
             Limpiar()
         Else
-            MsgBox("Ingrese un ID", vbInformation, "TB")
+            MsgBox("Ingrese un ID", vbInformation, "Usuarios")
         End If
 
     End Sub
@@ -106,4 +109,20 @@ Public Class Usuarios_Frm
 
     End Sub
 
+    Private Sub dgv_usuarios_CellClick(ByVal sender As Object, ByVal e As System.Windows.Forms.DataGridViewCellEventArgs) Handles dgv_usuarios.CellClick
+        If e.RowIndex >= 0 Then
+            Dim row As DataGridViewRow = dgv_usuarios.Rows(e.RowIndex)
+            txt_id.Text = row.Cells("Codigo").Value.ToString()
+            txt_usuario.Text = row.Cells("Usuario").Value.ToString()
+            txt_contraseña.Text = row.Cells("Contraseña").Value.ToString()
+            cbo_cargo.Text = row.Cells("Cargo").Value.ToString()
+        End If
+    End Sub
+
+    Private Sub txt_limpiar_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles txt_limpiar.Click
+        txt_id.Clear()
+        txt_usuario.Clear()
+        txt_contraseña.Clear()
+        cbo_cargo.SelectedIndex = 0
+    End Sub
 End Class

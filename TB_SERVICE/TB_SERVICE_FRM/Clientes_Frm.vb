@@ -1,6 +1,8 @@
 ﻿Imports System.Data
 Imports TB_SERVICE_AD
 Imports System.Diagnostics
+Imports System.Net
+Imports System.IO
 
 Public Class Clientes_Frm
 
@@ -212,18 +214,38 @@ Public Class Clientes_Frm
     End Sub
 
     Private Sub Button1_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles Button1.Click
-
         Dim message As String = "Hola, este es un mensaje enviado desde mi aplicación."
         Dim phoneNumber As String = "5493573500528"
         Dim encodedMessage As String = Uri.EscapeDataString(message)
         Dim wsapurl As String = "https://wa.me/" & phoneNumber & "?text=" & encodedMessage
         Process.Start(wsapurl)
 
+        'Dim mensaje As String = "Hola"
+        'enviarwsap(mensaje)
     End Sub
+
+    'Private Sub enviarwsap(ByVal mensaje As String)
+    '    Dim url As String = "https://tu-api-de-whatsapp.com/sendMessage"
+    '    Dim numero As String = "+5493573500528"
+    '    Dim data As String = "{ ""phone"":""" & numero & """,""mesasge"":""" & mensaje & """}"
+    '    Using Client As New WebClient()
+    '        Try
+    '            Client.Headers(HttpRequestHeader.ContentType) = "application/json "
+    '            Dim response As String = Client.UploadString(url, "POST", data)
+    '            MessageBox.Show("Mensaje enviado correctamente. Respuesta: " & response)
+    '        Catch ex As Exception
+    '            MessageBox.Show("Error al enviar mensaje: " & ex.Message)
+    '        End Try
+    '    End Using
+    'End Sub
 
     Private Sub txt_buscar_TextChanged(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles txt_buscar.TextChanged
         If dv IsNot Nothing Then
             dv.RowFilter = "[Nombre] LIKE '%" & txt_buscar.Text & "%'"
         End If
     End Sub
+
 End Class
+
+
+

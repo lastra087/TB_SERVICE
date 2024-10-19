@@ -25,11 +25,12 @@ Public Class Equipos
         Return o_database.ExecuteDataSet("combo_modelo_x_marca", idmarca)
     End Function
 
-    Public Function cargar_equipos(ByVal idmarcas As Integer, ByVal idmodelos As Integer, ByVal idcliente As Integer, ByVal fecha_ingreso As String, ByVal problema_reportado As String) As Double
+    Public Function cargar_equipos(ByVal idmarcas As Integer, ByVal idmodelos As Integer, ByVal idcliente As Integer, ByVal fecha_ingreso As Date, ByVal problema_reportado As Integer) As Double
         Return o_database.ExecuteScalar("cargar_equipos", idmarcas, idmodelos, idcliente, fecha_ingreso, problema_reportado)
     End Function
 
     Public Function grilla_sala_espera() As DataSet
-        Return o_database.ExecuteDataSet("equipos_sala_espera")
+        Return o_database.ExecuteDataSet("grilla_taller")
+        'equipos_sala_espera procedidiemto viejo
     End Function
 End Class

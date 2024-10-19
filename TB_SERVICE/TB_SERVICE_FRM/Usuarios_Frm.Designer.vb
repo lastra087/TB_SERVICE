@@ -39,6 +39,7 @@ Partial Class Usuarios_Frm
         Me.lbl_id = New System.Windows.Forms.Label()
         Me.lbl_usuarios = New System.Windows.Forms.Label()
         Me.lbl_cerrar = New System.Windows.Forms.Label()
+        Me.txt_limpiar = New System.Windows.Forms.Button()
         CType(Me.dgv_usuarios, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
         '
@@ -58,7 +59,7 @@ Partial Class Usuarios_Frm
         '
         Me.btn_buscar.Font = New System.Drawing.Font("Microsoft Sans Serif", 7.8!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.btn_buscar.ImageAlign = System.Drawing.ContentAlignment.MiddleRight
-        Me.btn_buscar.Location = New System.Drawing.Point(540, 272)
+        Me.btn_buscar.Location = New System.Drawing.Point(540, 270)
         Me.btn_buscar.Margin = New System.Windows.Forms.Padding(3, 2, 3, 2)
         Me.btn_buscar.Name = "btn_buscar"
         Me.btn_buscar.Size = New System.Drawing.Size(101, 30)
@@ -124,7 +125,7 @@ Partial Class Usuarios_Frm
         Me.cbo_cargo.Location = New System.Drawing.Point(219, 161)
         Me.cbo_cargo.Margin = New System.Windows.Forms.Padding(4)
         Me.cbo_cargo.Name = "cbo_cargo"
-        Me.cbo_cargo.Size = New System.Drawing.Size(281, 24)
+        Me.cbo_cargo.Size = New System.Drawing.Size(313, 24)
         Me.cbo_cargo.TabIndex = 110
         '
         'txt_usuario
@@ -132,7 +133,7 @@ Partial Class Usuarios_Frm
         Me.txt_usuario.Location = New System.Drawing.Point(219, 97)
         Me.txt_usuario.Margin = New System.Windows.Forms.Padding(4)
         Me.txt_usuario.Name = "txt_usuario"
-        Me.txt_usuario.Size = New System.Drawing.Size(281, 22)
+        Me.txt_usuario.Size = New System.Drawing.Size(313, 22)
         Me.txt_usuario.TabIndex = 109
         '
         'txt_contraseña
@@ -140,7 +141,7 @@ Partial Class Usuarios_Frm
         Me.txt_contraseña.Location = New System.Drawing.Point(219, 129)
         Me.txt_contraseña.Margin = New System.Windows.Forms.Padding(4)
         Me.txt_contraseña.Name = "txt_contraseña"
-        Me.txt_contraseña.Size = New System.Drawing.Size(281, 22)
+        Me.txt_contraseña.Size = New System.Drawing.Size(313, 22)
         Me.txt_contraseña.TabIndex = 108
         '
         'lbl_cargo
@@ -178,6 +179,7 @@ Partial Class Usuarios_Frm
         Me.txt_id.Location = New System.Drawing.Point(219, 65)
         Me.txt_id.Margin = New System.Windows.Forms.Padding(4)
         Me.txt_id.Name = "txt_id"
+        Me.txt_id.ReadOnly = True
         Me.txt_id.Size = New System.Drawing.Size(51, 22)
         Me.txt_id.TabIndex = 104
         '
@@ -212,11 +214,23 @@ Partial Class Usuarios_Frm
         Me.lbl_cerrar.TabIndex = 119
         Me.lbl_cerrar.Text = "X"
         '
+        'txt_limpiar
+        '
+        Me.txt_limpiar.Font = New System.Drawing.Font("Microsoft Sans Serif", 7.8!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.txt_limpiar.Location = New System.Drawing.Point(540, 193)
+        Me.txt_limpiar.Margin = New System.Windows.Forms.Padding(3, 2, 3, 2)
+        Me.txt_limpiar.Name = "txt_limpiar"
+        Me.txt_limpiar.Size = New System.Drawing.Size(101, 30)
+        Me.txt_limpiar.TabIndex = 120
+        Me.txt_limpiar.Text = "Limpiar"
+        Me.txt_limpiar.UseVisualStyleBackColor = True
+        '
         'Usuarios_Frm
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(8.0!, 16.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.ClientSize = New System.Drawing.Size(1205, 727)
+        Me.Controls.Add(Me.txt_limpiar)
         Me.Controls.Add(Me.lbl_cerrar)
         Me.Controls.Add(Me.btn_mostrar_todo)
         Me.Controls.Add(Me.btn_buscar)
@@ -259,4 +273,5 @@ Partial Class Usuarios_Frm
     Friend WithEvents lbl_id As System.Windows.Forms.Label
     Friend WithEvents lbl_usuarios As System.Windows.Forms.Label
     Friend WithEvents lbl_cerrar As System.Windows.Forms.Label
+    Friend WithEvents txt_limpiar As System.Windows.Forms.Button
 End Class
